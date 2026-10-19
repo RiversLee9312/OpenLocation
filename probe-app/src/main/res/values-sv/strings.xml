@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Källa</string>
+    <string name="hooked">LSPosed · syntetisk</string>
+    <string name="real">Enhet · verklig</string>
+    <string name="start">Övervaka</string>
+    <string name="stop">Stoppa</string>
+    <string name="record">Spela in</string>
+    <string name="recording">Spelar in</string>
+    <string name="export">Exportera inspelning</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Ingen plats</string>
+    <string name="sensors">Sensorer</string>
+    <string name="instance">Instans %1$d · typ %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d sampel · %3$d avbrott</string>
+    <string name="timestamp">Monoton tidsstämpel: %1$d ns</string>
+    <string name="revision">Scen %1$d · sekvens %2$d</string>
+    <string name="waiting">Väntar på prover</string>
+    <string name="reference">Scenreferens</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">Ge åtkomst till plats och fysisk aktivitet för att granska alla kanaler.</string>
+    <string name="grant">Ge åtkomst</string>
+    <string name="export_error">Det gick inte att exportera inspelningen.</string>
+    <string name="record_limit">Inspelningsgränsen har nåtts</string>
+    <string name="latency">Callbackfördröjning: %1$.1f ms</string>
+    <string name="counter">Steg i sessionen: %1$d</string>
+</resources>

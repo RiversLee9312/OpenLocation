@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Nguồn</string>
+    <string name="hooked">LSPosed · tổng hợp</string>
+    <string name="real">Thiết bị · thực</string>
+    <string name="start">Theo dõi</string>
+    <string name="stop">Dừng</string>
+    <string name="record">Ghi</string>
+    <string name="recording">Đang ghi</string>
+    <string name="export">Xuất bản ghi</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Không có vị trí</string>
+    <string name="sensors">Cảm biến</string>
+    <string name="instance">Phiên bản %1$d · loại %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d mẫu · %3$d khoảng trống</string>
+    <string name="timestamp">Dấu thời gian đơn điệu: %1$d ns</string>
+    <string name="revision">Cảnh %1$d · chuỗi %2$d</string>
+    <string name="waiting">Đang chờ mẫu</string>
+    <string name="reference">Tham chiếu cảnh</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">Cấp quyền truy cập vị trí và hoạt động thể chất để kiểm tra tất cả các kênh.</string>
+    <string name="grant">Cấp quyền truy cập</string>
+    <string name="export_error">Không thể xuất bản ghi.</string>
+    <string name="record_limit">Đã đạt giới hạn ghi</string>
+    <string name="latency">Độ trễ lệnh gọi lại: %1$.1f ms</string>
+    <string name="counter">Số bước trong phiên: %1$d</string>
+</resources>

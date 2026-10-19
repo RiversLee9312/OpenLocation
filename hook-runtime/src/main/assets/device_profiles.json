@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "profiles": [
+    {
+      "id": "oneplus11-android16-20261019",
+      "model": "PHB110",
+      "device": "OP591BL1",
+      "sdk": 36,
+      "fingerprint": "OnePlus/CPH2449EEA/OP594DL1:16/TP1A.220905.001/T.R4T3.3b5d87c-159204d-16035e1:user/release-keys",
+      "status": "verified",
+      "verifiedChannels": ["java_gps", "java_sensors", "system_location", "native_sensors", "gnss_status", "raw_gnss"],
+      "sensorServiceSha256": "f91ac9b7e4d57936aa2fe82bd98c46c9012debf9ddadb8fdcd91a45c9df78972"
+    }
+  ]
+}

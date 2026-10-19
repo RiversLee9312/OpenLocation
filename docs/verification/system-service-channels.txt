@@ -1,0 +1,9 @@
+
+dev.openlocation.probe.HookIntegrationTest:....
+dev.openlocation.probe.ExtendedChannelsTest:...
+
+Time: 32.922
+
+OK (7 tests)
+
+

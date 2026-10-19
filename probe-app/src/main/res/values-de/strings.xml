@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Quelle</string>
+    <string name="hooked">LSPosed · synthetisch</string>
+    <string name="real">Gerät · echt</string>
+    <string name="start">Überwachen</string>
+    <string name="stop">Stopp</string>
+    <string name="record">Aufzeichnen</string>
+    <string name="recording">Aufzeichnung läuft</string>
+    <string name="export">Aufzeichnung exportieren</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Kein Standort</string>
+    <string name="sensors">Sensoren</string>
+    <string name="instance">Instanz %1$d · Typ %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d Messwerte · %3$d Lücken</string>
+    <string name="timestamp">Monotoner Zeitstempel: %1$d ns</string>
+    <string name="revision">Szene %1$d · Sequenz %2$d</string>
+    <string name="waiting">Warte auf Messwerte</string>
+    <string name="reference">Szenenreferenz</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">Erlaube den Zugriff auf Standort und Aktivität, um alle Kanäle zu prüfen.</string>
+    <string name="grant">Zugriff erlauben</string>
+    <string name="export_error">Aufzeichnung konnte nicht exportiert werden.</string>
+    <string name="record_limit">Aufzeichnungslimit erreicht</string>
+    <string name="latency">Callback-Verzögerung: %1$.1f ms</string>
+    <string name="counter">Schritte in der Sitzung: %1$d</string>
+</resources>

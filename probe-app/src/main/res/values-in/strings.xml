@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Sumber</string>
+    <string name="hooked">LSPosed · sintetis</string>
+    <string name="real">Perangkat · nyata</string>
+    <string name="start">Pantau</string>
+    <string name="stop">Hentikan</string>
+    <string name="record">Rekam</string>
+    <string name="recording">Merekam</string>
+    <string name="export">Ekspor rekaman</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Tidak ada lokasi</string>
+    <string name="sensors">Sensor</string>
+    <string name="instance">Instans %1$d · jenis %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d sampel · %3$d jeda</string>
+    <string name="timestamp">Stempel waktu monotonik: %1$d ns</string>
+    <string name="revision">Adegan %1$d · urutan %2$d</string>
+    <string name="waiting">Menunggu sampel</string>
+    <string name="reference">Referensi adegan</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">Berikan akses lokasi dan aktivitas fisik untuk memeriksa semua saluran.</string>
+    <string name="grant">Beri akses</string>
+    <string name="export_error">Rekaman tidak dapat diekspor.</string>
+    <string name="record_limit">Batas rekaman tercapai</string>
+    <string name="latency">Latensi callback: %1$.1f ms</string>
+    <string name="counter">Langkah sesi: %1$d</string>
+</resources>

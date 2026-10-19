@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Bron</string>
+    <string name="hooked">LSPosed · synthetisch</string>
+    <string name="real">Apparaat · echt</string>
+    <string name="start">Monitoren</string>
+    <string name="stop">Stoppen</string>
+    <string name="record">Opnemen</string>
+    <string name="recording">Bezig met opnemen</string>
+    <string name="export">Opname exporteren</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Geen locatie</string>
+    <string name="sensors">Sensoren</string>
+    <string name="instance">Instantie %1$d · type %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d samples · %3$d onderbrekingen</string>
+    <string name="timestamp">Monotone tijdstempel: %1$d ns</string>
+    <string name="revision">Scène %1$d · reeks %2$d</string>
+    <string name="waiting">Wachten op samples</string>
+    <string name="reference">Scènereferentie</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">Geef toegang tot locatie en fysieke activiteit om alle kanalen te bekijken.</string>
+    <string name="grant">Toegang verlenen</string>
+    <string name="export_error">Opname exporteren is mislukt.</string>
+    <string name="record_limit">Opnamelimiet bereikt</string>
+    <string name="latency">Callbackvertraging: %1$.1f ms</string>
+    <string name="counter">Stappen in sessie: %1$d</string>
+</resources>

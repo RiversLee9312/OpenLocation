@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(openlocation_probe LANGUAGES CXX)
+add_library(openlocation_probe SHARED consumer.cpp)
+target_compile_features(openlocation_probe PRIVATE cxx_std_20)
+target_compile_options(openlocation_probe PRIVATE -Wall -Wextra -Werror)
+target_link_options(openlocation_probe PRIVATE -Wl,-z,max-page-size=16384)
+target_link_libraries(openlocation_probe PRIVATE android log)

@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Джерело</string>
+    <string name="hooked">LSPosed · синтетичні дані</string>
+    <string name="real">Пристрій · реальні дані</string>
+    <string name="start">Моніторинг</string>
+    <string name="stop">Зупинити</string>
+    <string name="record">Записати</string>
+    <string name="recording">Триває запис</string>
+    <string name="export">Експортувати запис</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Немає місцеположення</string>
+    <string name="sensors">Датчики</string>
+    <string name="instance">Екземпляр %1$d · тип %2$d</string>
+    <string name="rate">%1$.1f Hz · зразків: %2$d · пропусків: %3$d</string>
+    <string name="timestamp">Монотонна часова мітка: %1$d нс</string>
+    <string name="revision">Сцена %1$d · послідовність %2$d</string>
+    <string name="waiting">Очікування зразків</string>
+    <string name="reference">Еталон сцени</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f м</string>
+    <string name="permission">Надайте доступ до місцеположення та фізичної активності, щоб перевірити всі канали.</string>
+    <string name="grant">Надати доступ</string>
+    <string name="export_error">Не вдалося експортувати запис.</string>
+    <string name="record_limit">Досягнуто ліміт запису</string>
+    <string name="latency">Затримка зворотного виклику: %1$.1f мс</string>
+    <string name="counter">Кроки за сеанс: %1$d</string>
+</resources>

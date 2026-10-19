@@ -1,0 +1,9 @@
+
+dev.openlocation.app.TrackLibraryTest:..
+dev.openlocation.app.LauncherIconTest:.
+
+Time: 0.218
+
+OK (3 tests)
+
+

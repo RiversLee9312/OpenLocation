@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">المصدر</string>
+    <string name="hooked">LSPosed · اصطناعي</string>
+    <string name="real">الجهاز · حقيقي</string>
+    <string name="start">مراقبة</string>
+    <string name="stop">إيقاف</string>
+    <string name="record">تسجيل</string>
+    <string name="recording">جارٍ التسجيل</string>
+    <string name="export">تصدير التسجيل</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">لا يوجد موقع</string>
+    <string name="sensors">المستشعرات</string>
+    <string name="instance">المثيل %1$d · النوع %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d عينة · %3$d فجوات</string>
+    <string name="timestamp">الطابع الزمني الرتيب: %1$d ns</string>
+    <string name="revision">المشهد %1$d · التسلسل %2$d</string>
+    <string name="waiting">في انتظار العينات</string>
+    <string name="reference">مرجع المشهد</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f م</string>
+    <string name="permission">امنح إذن الوصول إلى الموقع والنشاط البدني لفحص جميع القنوات.</string>
+    <string name="grant">منح الإذن</string>
+    <string name="export_error">تعذر تصدير التسجيل.</string>
+    <string name="record_limit">تم بلوغ حد التسجيل</string>
+    <string name="latency">تأخير الاستدعاء: %1$.1f ms</string>
+    <string name="counter">خطوات الجلسة: %1$d</string>
+</resources>

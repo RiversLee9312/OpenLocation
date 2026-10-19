@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">แหล่งที่มา</string>
+    <string name="hooked">LSPosed · จำลอง</string>
+    <string name="real">อุปกรณ์ · จริง</string>
+    <string name="start">ตรวจสอบ</string>
+    <string name="stop">หยุด</string>
+    <string name="record">บันทึก</string>
+    <string name="recording">กำลังบันทึก</string>
+    <string name="export">ส่งออกการบันทึก</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">ไม่มีตำแหน่ง</string>
+    <string name="sensors">เซ็นเซอร์</string>
+    <string name="instance">อินสแตนซ์ %1$d · ประเภท %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d ตัวอย่าง · %3$d ช่วงที่ขาด</string>
+    <string name="timestamp">การประทับเวลาแบบโมโนโทนิก: %1$d ns</string>
+    <string name="revision">ฉาก %1$d · ลำดับ %2$d</string>
+    <string name="waiting">กำลังรอตัวอย่าง</string>
+    <string name="reference">ข้อมูลอ้างอิงฉาก</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">อนุญาตให้เข้าถึงตำแหน่งและกิจกรรมทางกายเพื่อตรวจสอบทุกช่องทาง</string>
+    <string name="grant">ให้สิทธิ์เข้าถึง</string>
+    <string name="export_error">ส่งออกการบันทึกไม่ได้</string>
+    <string name="record_limit">ถึงขีดจำกัดการบันทึกแล้ว</string>
+    <string name="latency">ความหน่วงของ callback: %1$.1f ms</string>
+    <string name="counter">จำนวนก้าวในเซสชัน: %1$d</string>
+</resources>

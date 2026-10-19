@@ -1,0 +1,11 @@
+# Translation report
+
+Added 20 locales: Japanese (`ja`), Korean (`ko`), German (`de`), French (`fr`), Spanish (`es`), Brazilian Portuguese (`pt-BR`), Italian (`it`), Russian (`ru`), Ukrainian (`uk`), Polish (`pl`), Dutch (`nl`), Turkish (`tr`), Arabic (`ar`), Hebrew (`he`), Persian (`fa`), Hindi (`hi`), Indonesian (`id`), Vietnamese (`vi`), Thai (`th`), and Swedish (`sv`). The locale configuration also includes English and Simplified Chinese, for 22 selectable locales.
+
+Each new locale has all 165 translatable controller strings and one `route_points` plural resource, plus all 24 probe strings. Seventy added controller strings cover motion, path and heading variation, target-app selection and search, system-service labeling, value units, GNSS simulation and diagnostics, GPS track recording, orbital data refresh, the first-use usage notice, and the unified GPX track library. Track names retain the 1–120 character limit. Non-translatable resources remain in the default resources and are excluded from locale coverage. Format placeholders retain their original indexes and types.
+
+Plural categories follow each locale: Japanese, Korean, Indonesian, Vietnamese, Thai, and Simplified Chinese use `other`; Hebrew uses `one`/`two`/`other`; Spanish, French, Italian, and Brazilian Portuguese include `many`; Russian, Ukrainian, and Polish use `one`/`few`/`many`/`other`; Arabic uses `zero`/`one`/`two`/`few`/`many`/`other`. Other locales use `one`/`other`. Android resource folders use `values-iw` and `values-in` for Hebrew and Indonesian aliases, while the locale configuration retains modern `he` and `id` tags.
+
+These are generated translations and require native-speaker review, especially for technical terms, RTL presentation, and constrained layouts. No human review or linguistic certification is implied.
+
+Structural validation parsed all 42 translated module XML files (20 added locales plus Simplified Chinese), then checked key coverage, resource types, format placeholders, and AAPT apostrophe escapes with `tools/check-locales.py`. Plural categories, locale folder aliases, Simplified Chinese updates, and locale configuration were also checked. No Gradle or AAPT build was run in this localization pass.

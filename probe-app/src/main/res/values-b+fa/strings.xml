@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">منبع</string>
+    <string name="hooked">LSPosed · مصنوعی</string>
+    <string name="real">دستگاه · واقعی</string>
+    <string name="start">پایش</string>
+    <string name="stop">توقف</string>
+    <string name="record">ضبط</string>
+    <string name="recording">در حال ضبط</string>
+    <string name="export">صادر کردن ضبط</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">مکانی در دسترس نیست</string>
+    <string name="sensors">حسگرها</string>
+    <string name="instance">نمونهٔ %1$d · نوع %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d نمونه · %3$d وقفه</string>
+    <string name="timestamp">برچسب زمانی یکنواخت: %1$d ns</string>
+    <string name="revision">صحنهٔ %1$d · توالی %2$d</string>
+    <string name="waiting">در انتظار نمونه‌ها</string>
+    <string name="reference">مرجع صحنه</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f מטר</string>
+    <string name="permission">برای بررسی همهٔ کانال‌ها، دسترسی به مکان و فعالیت بدنی را بدهید.</string>
+    <string name="grant">دادن دسترسی</string>
+    <string name="export_error">صادر کردن ضبط ممکن نیست.</string>
+    <string name="record_limit">محدودیت ضبط پر شد</string>
+    <string name="latency">تأخیر callback: %1$.1f ms</string>
+    <string name="counter">گام‌های نشست: %1$d</string>
+</resources>

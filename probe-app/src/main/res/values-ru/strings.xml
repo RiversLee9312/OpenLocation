@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Источник</string>
+    <string name="hooked">LSPosed · синтетические данные</string>
+    <string name="real">Устройство · реальные данные</string>
+    <string name="start">Мониторинг</string>
+    <string name="stop">Остановить</string>
+    <string name="record">Записать</string>
+    <string name="recording">Идёт запись</string>
+    <string name="export">Экспортировать запись</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Нет местоположения</string>
+    <string name="sensors">Датчики</string>
+    <string name="instance">Экземпляр %1$d · тип %2$d</string>
+    <string name="rate">%1$.1f Hz · отсчётов: %2$d · пропусков: %3$d</string>
+    <string name="timestamp">Монотонная временная метка: %1$d нс</string>
+    <string name="revision">Сцена %1$d · последовательность %2$d</string>
+    <string name="waiting">Ожидание отсчётов</string>
+    <string name="reference">Эталон сцены</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f м</string>
+    <string name="permission">Предоставьте доступ к местоположению и физической активности, чтобы проверить все каналы.</string>
+    <string name="grant">Предоставить доступ</string>
+    <string name="export_error">Не удалось экспортировать запись.</string>
+    <string name="record_limit">Достигнут предел записи</string>
+    <string name="latency">Задержка обратного вызова: %1$.1f мс</string>
+    <string name="counter">Шаги за сеанс: %1$d</string>
+</resources>

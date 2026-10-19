@@ -1,0 +1,39 @@
+OpenLocation initial implementation is independently written from the development handoff.
+
+Material Symbols Rounded icon vectors: Copyright Google LLC, Apache License 2.0.
+https://github.com/google/material-design-icons/blob/master/LICENSE
+
+MapLibre Native Android SDK: BSD 2-Clause; its transitive components retain their own licenses.
+https://github.com/maplibre/maplibre-native/blob/main/LICENSE.md
+
+OpenStreetMap map data and attribution: © OpenStreetMap contributors, ODbL.
+https://www.openstreetmap.org/copyright
+
+Xposed API 82: provided at compile time only; actual implementation comes from the device's LSPosed runtime.
+
+Launcher artwork: generated for this project with the built-in GPT-image tool. See docs/design.md.
+
+SGP4 propagation: aholinch/sgp4, Unlicense/public domain. Unmodified Java propagation sources
+retain their original comments. See third-party/sgp4/LICENSE.
+https://github.com/aholinch/sgp4
+
+XZ for Java 1.10: Copyright The XZ for Java authors and contributors, 0BSD.
+See third-party/xz-java/LICENSE.
+https://github.com/tukaani-project/xz-java/tree/v1.10
+
+GNSS OMM snapshot: CelesTrak, retrieved 2026-10-19. Synthetic measurements are generated
+by OpenLocation and do not represent received radio signals or imply CelesTrak endorsement.
+https://celestrak.org/NORAD/elements/gp.php?GROUP=gnss&FORMAT=json
+
+Android service signatures are resolved against the installed framework. AOSP reference sources
+and the LSPosed runtime are not redistributed with this project.
+
+AndroidX/Jetpack Compose and Kotlin runtime components retain their Apache-2.0 licenses.
+MapLibre's Android component notices are reproduced in third-party/maplibre/ANDROID-LICENSES.md.
+The application includes the readable license catalog under Settings → Open source licenses.
+
+Android NDK 28.2 runtime components (libc++, libc++abi, libunwind, compiler-rt):
+Apache-2.0 with LLVM exceptions and retained legacy notices. Exact license texts from
+NDK's LLVM base revision 3b5e7c83a6e226d5bd7ed2e9b67449b64812074c are in third-party/llvm/.
+https://github.com/llvm/llvm-project/tree/3b5e7c83a6e226d5bd7ed2e9b67449b64812074c
+Probe and native companion packages also embed their project/runtime notices.

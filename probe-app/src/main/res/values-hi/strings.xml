@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">स्रोत</string>
+    <string name="hooked">LSPosed · कृत्रिम</string>
+    <string name="real">डिवाइस · वास्तविक</string>
+    <string name="start">निगरानी करें</string>
+    <string name="stop">रोकें</string>
+    <string name="record">रिकॉर्ड करें</string>
+    <string name="recording">रिकॉर्ड हो रहा है</string>
+    <string name="export">रिकॉर्डिंग निर्यात करें</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">स्थान उपलब्ध नहीं</string>
+    <string name="sensors">सेंसर</string>
+    <string name="instance">इंस्टेंस %1$d · प्रकार %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d नमूने · %3$d अंतराल त्रुटियाँ</string>
+    <string name="timestamp">मोनोटोनिक टाइमस्टैम्प: %1$d ns</string>
+    <string name="revision">दृश्य %1$d · क्रम %2$d</string>
+    <string name="waiting">नमूनों की प्रतीक्षा है</string>
+    <string name="reference">दृश्य संदर्भ</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">सभी चैनल देखने के लिए स्थान और शारीरिक गतिविधि की अनुमति दें।</string>
+    <string name="grant">अनुमति दें</string>
+    <string name="export_error">रिकॉर्डिंग निर्यात नहीं की जा सकी।</string>
+    <string name="record_limit">रिकॉर्डिंग सीमा पूरी हो गई</string>
+    <string name="latency">कॉलबैक विलंब: %1$.1f ms</string>
+    <string name="counter">सत्र के कदम: %1$d</string>
+</resources>

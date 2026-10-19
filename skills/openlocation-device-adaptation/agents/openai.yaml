@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenLocation device adaptation"
+  short_description: "Adapt and verify a device and firmware profile"
+  default_prompt: "Use $openlocation-device-adaptation to debug and validate OpenLocation on this device and firmware."

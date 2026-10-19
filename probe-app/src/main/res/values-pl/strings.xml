@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Źródło</string>
+    <string name="hooked">LSPosed · dane syntetyczne</string>
+    <string name="real">Urządzenie · rzeczywiste</string>
+    <string name="start">Monitoruj</string>
+    <string name="stop">Zatrzymaj</string>
+    <string name="record">Nagrywaj</string>
+    <string name="recording">Nagrywanie</string>
+    <string name="export">Eksportuj nagranie</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Brak lokalizacji</string>
+    <string name="sensors">Czujniki</string>
+    <string name="instance">Instancja %1$d · typ %2$d</string>
+    <string name="rate">%1$.1f Hz · próbek: %2$d · przerw: %3$d</string>
+    <string name="timestamp">Monotoniczny znacznik czasu: %1$d ns</string>
+    <string name="revision">Scena %1$d · sekwencja %2$d</string>
+    <string name="waiting">Oczekiwanie na próbki</string>
+    <string name="reference">Wartość odniesienia sceny</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">Przyznaj dostęp do lokalizacji i aktywności fizycznej, aby sprawdzić wszystkie kanały.</string>
+    <string name="grant">Przyznaj dostęp</string>
+    <string name="export_error">Nie udało się wyeksportować nagrania.</string>
+    <string name="record_limit">Osiągnięto limit nagrania</string>
+    <string name="latency">Opóźnienie wywołania zwrotnego: %1$.1f ms</string>
+    <string name="counter">Kroki w sesji: %1$d</string>
+</resources>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Origine</string>
+    <string name="hooked">LSPosed · sintetico</string>
+    <string name="real">Dispositivo · reale</string>
+    <string name="start">Monitora</string>
+    <string name="stop">Ferma</string>
+    <string name="record">Registra</string>
+    <string name="recording">Registrazione in corso</string>
+    <string name="export">Esporta registrazione</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Nessuna posizione</string>
+    <string name="sensors">Sensori</string>
+    <string name="instance">Istanza %1$d · tipo %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d campioni · %3$d intervalli persi</string>
+    <string name="timestamp">Timestamp monotono: %1$d ns</string>
+    <string name="revision">Scena %1$d · sequenza %2$d</string>
+    <string name="waiting">In attesa di campioni</string>
+    <string name="reference">Riferimento della scena</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">Concedi l’accesso alla posizione e all’attività fisica per controllare tutti i canali.</string>
+    <string name="grant">Concedi accesso</string>
+    <string name="export_error">Impossibile esportare la registrazione.</string>
+    <string name="record_limit">Limite di registrazione raggiunto</string>
+    <string name="latency">Ritardo del callback: %1$.1f ms</string>
+    <string name="counter">Passi della sessione: %1$d</string>
+</resources>

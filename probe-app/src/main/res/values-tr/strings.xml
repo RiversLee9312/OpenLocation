@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">Kaynak</string>
+    <string name="hooked">LSPosed · sentetik</string>
+    <string name="real">Cihaz · gerçek</string>
+    <string name="start">İzle</string>
+    <string name="stop">Durdur</string>
+    <string name="record">Kaydet</string>
+    <string name="recording">Kaydediliyor</string>
+    <string name="export">Kaydı dışa aktar</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">Konum yok</string>
+    <string name="sensors">Sensörler</string>
+    <string name="instance">Örnek %1$d · tür %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d örnek · %3$d boşluk</string>
+    <string name="timestamp">Monoton zaman damgası: %1$d ns</string>
+    <string name="revision">Sahne %1$d · sıra %2$d</string>
+    <string name="waiting">Örnekler bekleniyor</string>
+    <string name="reference">Sahne referansı</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">Tüm kanalları incelemek için konum ve fiziksel aktivite erişimi verin.</string>
+    <string name="grant">Erişim ver</string>
+    <string name="export_error">Kayıt dışa aktarılamadı.</string>
+    <string name="record_limit">Kayıt sınırına ulaşıldı</string>
+    <string name="latency">Geri çağrı gecikmesi: %1$.1f ms</string>
+    <string name="counter">Oturum adımları: %1$d</string>
+</resources>

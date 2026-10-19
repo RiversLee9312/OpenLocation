@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(openlocation LANGUAGES CXX)
+add_library(openlocation SHARED service.cpp)
+target_compile_features(openlocation PRIVATE cxx_std_20)
+target_compile_options(openlocation PRIVATE -Wall -Wextra -Werror -fvisibility=hidden)
+target_link_options(openlocation PRIVATE -Wl,-z,max-page-size=16384)
+target_link_libraries(openlocation PRIVATE android log dl binder_ndk)

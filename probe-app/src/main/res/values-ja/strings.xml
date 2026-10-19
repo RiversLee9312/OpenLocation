@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">ソース</string>
+    <string name="hooked">LSPosed · 合成</string>
+    <string name="real">端末 · 実際</string>
+    <string name="start">監視</string>
+    <string name="stop">停止</string>
+    <string name="record">記録</string>
+    <string name="recording">記録中</string>
+    <string name="export">記録をエクスポート</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">位置情報なし</string>
+    <string name="sensors">センサー</string>
+    <string name="instance">インスタンス %1$d · 種類 %2$d</string>
+    <string name="rate">%1$.1f Hz · %2$d 件のサンプル · %3$d 個の間隔異常</string>
+    <string name="timestamp">単調時計のタイムスタンプ：%1$d ns</string>
+    <string name="revision">シーン %1$d · シーケンス %2$d</string>
+    <string name="waiting">サンプルを待機中</string>
+    <string name="reference">シーンの基準値</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">すべてのチャネルを確認するには、位置情報と身体活動へのアクセスを許可してください。</string>
+    <string name="grant">アクセスを許可</string>
+    <string name="export_error">記録をエクスポートできませんでした。</string>
+    <string name="record_limit">記録上限に達しました</string>
+    <string name="latency">コールバック遅延：%1$.1f ms</string>
+    <string name="counter">セッションの歩数：%1$d</string>
+</resources>

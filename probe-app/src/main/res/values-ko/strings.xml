@@ -1,0 +1,26 @@
+<resources>
+    <string name="source">소스</string>
+    <string name="hooked">LSPosed · 합성</string>
+    <string name="real">기기 · 실제</string>
+    <string name="start">모니터링</string>
+    <string name="stop">중지</string>
+    <string name="record">기록</string>
+    <string name="recording">기록 중</string>
+    <string name="export">기록 내보내기</string>
+    <string name="gps">GPS</string>
+    <string name="no_location">위치 정보 없음</string>
+    <string name="sensors">센서</string>
+    <string name="instance">인스턴스 %1$d · 유형 %2$d</string>
+    <string name="rate">%1$.1f Hz · 샘플 %2$d개 · 간격 오류 %3$d개</string>
+    <string name="timestamp">단조 시계 타임스탬프: %1$d ns</string>
+    <string name="revision">장면 %1$d · 시퀀스 %2$d</string>
+    <string name="waiting">샘플 대기 중</string>
+    <string name="reference">장면 기준값</string>
+    <string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>
+    <string name="permission">모든 채널을 확인하려면 위치 및 신체 활동 액세스를 허용하세요.</string>
+    <string name="grant">액세스 허용</string>
+    <string name="export_error">기록을 내보낼 수 없습니다.</string>
+    <string name="record_limit">기록 한도에 도달함</string>
+    <string name="latency">콜백 지연: %1$.1f ms</string>
+    <string name="counter">세션 걸음 수: %1$d</string>
+</resources>
