@@ -88,7 +88,7 @@
     <string name="language">Idioma</string>
     <string name="language_system">Ajustes de idioma de la aplicación del sistema</string>
     <string name="about">Acerca de</string>
-    <string name="version">Versión 0.1.0</string>
+    <string name="version">Versión %1$s</string>
     <string name="session_channel">Sesión de simulación</string>
     <string name="close">Cerrar</string>
     <string name="back">Atrás</string>
@@ -195,4 +195,12 @@
     <string name="baidu_location">Ubicación de Baidu</string>
     <string name="verification_scope">La verificación se aplica a las versiones y canales indicados en el perfil del dispositivo.</string>
     <string name="current_route">Ruta actual</string>
+    <string name="target_speed">Velocidad objetivo</string>
+    <string name="speed_units">Unidad de velocidad</string>
+    <string name="unit_mps">m/s</string>
+    <string name="unit_kmh">km/h</string>
+    <string name="unit_mph">mph</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">Reducir velocidad en curvas</string>
+    <string name="corner_slowdown_hint">Las curvas y las variaciones de la ruta pueden reducir la velocidad configurada.</string>
 </resources>

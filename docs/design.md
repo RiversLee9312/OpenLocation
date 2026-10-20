@@ -10,6 +10,8 @@ The route editor reserves most of the screen for the map. A fixed center pin and
 
 The Routes page contains recording/library entry points, the route preview and Edit route. Point lists, duplicate edit instructions and the old reset controls are removed from its footer. Path deviation limit and wavelength live in Scene → Configuration, sharing that configuration draft and Save action. GPX import and current-route save/export are grouped in the track library.
 
+Scene configuration names the configured value Target speed. Slow down on bends is enabled by default and has one concise explanation of its effect on actual speed, including path variation. Disabling it retains start acceleration and end braking. Settings provides m/s, km/h and mph choices. Values and slider ranges/accessible progress use the selected unit; stored scenes and Android observations remain in SI units.
+
 The probe separates Overview, Heading and Sensors. Overview shows source state and capture controls; Heading compares actual Android sensor events with the scene reference and identifies each sensor by its numeric type and instance. Sensor cards expose rates and timing first, with hardware metadata on expansion. Both apps use the same expressive theme and dynamic color roles. Directional edit icons mirror in RTL.
 
 ## Primary sources

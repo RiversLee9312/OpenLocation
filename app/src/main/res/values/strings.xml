@@ -20,6 +20,14 @@
     <string name="car">Drive</string>
     <string name="speed">Speed</string>
     <string name="speed_value">%1$.1f m/s</string>
+    <string name="target_speed">Target speed</string>
+    <string name="speed_units">Speed units</string>
+    <string name="unit_mps">m/s</string>
+    <string name="unit_kmh">km/h</string>
+    <string name="unit_mph">mph</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">Slow down on bends</string>
+    <string name="corner_slowdown_hint">Bends and path variation may reduce the set speed.</string>
     <string name="distance_value">%1$.2f km</string>
     <string name="duration_value">%1$d:%2$02d</string>
     <string name="distance">Distance</string>
@@ -84,7 +92,7 @@
     <string name="language">Language</string>
     <string name="language_system">System app language settings</string>
     <string name="about">About</string>
-    <string name="version">Version 0.1.0</string>
+    <string name="version">Version %1$s</string>
     <string name="session_channel">Simulation session</string>
     <string name="close">Close</string>
     <string name="back">Back</string>

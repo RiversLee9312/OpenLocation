@@ -12,12 +12,15 @@ Reference: OnePlus 11, PHB110 / OP591BL1 / API 36, updated 2026-10-20. The compl
 - Transactional route editing with device-geocoder search, center-pin placement, existing-point movement, arbitrary-point deletion, coordinate entry and bounded undo/redo.
 - A compact Routes overview; path-deviation settings are in Scene configuration, and GPX file actions are in the track library.
 - Probe overview, independent heading comparison and searchable sensor-instance cards.
+- Default-enabled curve slowdown with an explicit target-speed explanation, plus persistent m/s, km/h and mph display/input units.
 - Material 3 Expressive, dynamic color, adaptive/themed icon, first-use notice, open source licenses and 22 resource locales.
 - Agent adaptation skill, rollback instructions, private release signing and no cloud/device-transfer backup of recordings.
 
 ## Evidence
 
-JVM: 21 tests pass (13 dynamics/GNSS, 6 profile/recorded-GPX/recipient-policy/route-editing/coordinate-input, 2 ELF parsing). Release lint has zero errors. Both APKs pass ELF/ZIP 16 KiB alignment checks; the physical phone uses 4 KiB pages.
+JVM: 24 tests pass (15 dynamics/GNSS/speed-policy, 7 profile/recorded-GPX/recipient-policy/route-editing/coordinate-input/speed-units, 2 ELF parsing). Release lint has zero errors. Both APKs pass ELF/ZIP 16 KiB alignment checks; the physical phone uses 4 KiB pages.
+
+Version 0.1.2 reran 15 core and 7 Android-boundary JVM tests. After installing both APKs/companion and restarting, an independent Android LocationManager consumer received 35.00 m/s with curve limiting disabled. Unit switching showed 126.0 km/h and 78.3 mph for the same SI target. Original route/motion settings, default-enabled curve limiting and the previous m/s preference were restored after checking. See `verification/speed-policy-0.1.2.md`. The previous SDK/sensor transport evidence retains its original versioned scope.
 
 Version 0.1.1 adds independent checks for seven heading variants (including numeric TYPE_ORIENTATION despite a misleading vendor name), a real GMS Fused Location Provider client, fourteen-type Java queues, native queues/direct memory, and unselected-UID isolation. All five device tests passed. See `verification/heading-channels-0.1.1.txt`, `gms-location-0.1.1.txt`, `sensor-expansion-0.1.1.txt` and `uid-isolation-0.1.1.txt`. The heading test cross-checks received events using Android's rotation-matrix APIs; a physical device-rotation test is not included in this evidence.
 

@@ -91,7 +91,7 @@
     <string name="language">اللغة</string>
     <string name="language_system">إعدادات لغة التطبيق في النظام</string>
     <string name="about">حول التطبيق</string>
-    <string name="version">الإصدار 0.1.0</string>
+    <string name="version">الإصدار %1$s</string>
     <string name="session_channel">جلسة المحاكاة</string>
     <string name="close">إغلاق</string>
     <string name="back">رجوع</string>
@@ -198,4 +198,12 @@
     <string name="baidu_location">موقع Baidu</string>
     <string name="verification_scope">ينطبق التحقق على الإصدارات والقنوات المدرجة في ملف تعريف الجهاز.</string>
     <string name="current_route">المسار الحالي</string>
+    <string name="target_speed">السرعة المستهدفة</string>
+    <string name="speed_units">وحدة السرعة</string>
+    <string name="unit_mps">م/ث</string>
+    <string name="unit_kmh">كم/س</string>
+    <string name="unit_mph">ميل/س</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">خفّض السرعة عند المنعطفات</string>
+    <string name="corner_slowdown_hint">قد تؤدي المنعطفات وتغيّرات المسار إلى خفض السرعة المحددة.</string>
 </resources>

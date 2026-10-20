@@ -11,6 +11,7 @@ import dev.openlocation.app.data.*
 import dev.openlocation.engine.*
 import dev.openlocation.runtime.Contract
 import dev.openlocation.runtime.Gpx
+import dev.openlocation.runtime.SpeedUnit
 import dev.openlocation.scenario.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
@@ -21,6 +22,7 @@ data class SceneUiState(
     val lengthMeters: Double = 0.0,
     val duration: Double = 0.0,
     val dynamicColor: Boolean = true,
+    val speedUnit: SpeedUnit = SpeedUnit.METERS_PER_SECOND,
     val error: Int? = null,
     val nominalRoute: List<GeoPoint> = emptyList(),
     val targets: Set<String> = setOf(Contract.PROBE_PACKAGE),
@@ -38,6 +40,7 @@ class SceneViewModel(application: Application) : AndroidViewModel(application) {
             SceneUiState(
                 store.snapshot(),
                 dynamicColor = prefs.getBoolean("dynamic", true),
+                speedUnit = SpeedUnit.fromId(prefs.getString("speedUnit", null)),
                 targets = TargetAccess.enabled(application),
                 compatible = dev.openlocation.runtime.DeviceProfiles.matches(application),
                 verifiedChannels =
@@ -146,7 +149,7 @@ class SceneViewModel(application: Application) : AndroidViewModel(application) {
                             SceneEngine(
                                 scene
                             ) // Validate extent, distinct points and total length before
-                              // committing.
+                            // committing.
                             check(!store.snapshot().running)
                             store.configure(scene)
                         }
@@ -214,6 +217,11 @@ class SceneViewModel(application: Application) : AndroidViewModel(application) {
     fun dynamic(value: Boolean) {
         prefs.edit().putBoolean("dynamic", value).apply()
         _ui.update { it.copy(dynamicColor = value) }
+    }
+
+    fun speedUnit(value: SpeedUnit) {
+        prefs.edit().putString("speedUnit", value.id).apply()
+        _ui.update { it.copy(speedUnit = value) }
     }
 
     fun refreshOrbits() {

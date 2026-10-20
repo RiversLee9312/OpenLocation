@@ -86,7 +86,7 @@
     <string name="language">Ngôn ngữ</string>
     <string name="language_system">Cài đặt ngôn ngữ ứng dụng của hệ thống</string>
     <string name="about">Giới thiệu</string>
-    <string name="version">Phiên bản 0.1.0</string>
+    <string name="version">Phiên bản %1$s</string>
     <string name="session_channel">Phiên mô phỏng</string>
     <string name="close">Đóng</string>
     <string name="back">Quay lại</string>
@@ -193,4 +193,12 @@
     <string name="baidu_location">Vị trí Baidu</string>
     <string name="verification_scope">Việc xác minh áp dụng cho các phiên bản và kênh được liệt kê trong hồ sơ thiết bị.</string>
     <string name="current_route">Tuyến đường hiện tại</string>
+    <string name="target_speed">Tốc độ mục tiêu</string>
+    <string name="speed_units">Đơn vị tốc độ</string>
+    <string name="unit_mps">m/s</string>
+    <string name="unit_kmh">km/h</string>
+    <string name="unit_mph">mph</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">Giảm tốc khi vào cua</string>
+    <string name="corner_slowdown_hint">Đường cong và biến động của lộ trình có thể làm giảm tốc độ đã đặt.</string>
 </resources>

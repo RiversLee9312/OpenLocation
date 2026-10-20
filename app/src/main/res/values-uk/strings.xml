@@ -89,7 +89,7 @@
     <string name="language">Мова</string>
     <string name="language_system">Системні налаштування мови додатка</string>
     <string name="about">Про додаток</string>
-    <string name="version">Версія 0.1.0</string>
+    <string name="version">Версія %1$s</string>
     <string name="session_channel">Сеанс симуляції</string>
     <string name="close">Закрити</string>
     <string name="back">Назад</string>
@@ -196,4 +196,12 @@
     <string name="baidu_location">Місцезнаходження Baidu</string>
     <string name="verification_scope">Перевірка поширюється на версії та канали, зазначені в профілі пристрою.</string>
     <string name="current_route">Поточний маршрут</string>
+    <string name="target_speed">Цільова швидкість</string>
+    <string name="speed_units">Одиниці швидкості</string>
+    <string name="unit_mps">м/с</string>
+    <string name="unit_kmh">км/год</string>
+    <string name="unit_mph">миль/год</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">Знижувати швидкість на поворотах</string>
+    <string name="corner_slowdown_hint">Повороти та зміни траєкторії можуть знизити задану швидкість.</string>
 </resources>

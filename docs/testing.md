@@ -9,6 +9,8 @@ python tools/check-locales.py
 
 Tests cover reproducibility, route/heading bounds across placements, shared attitude/magnetic data, steps, pause/tunnels, firmware matching, mock/stale fix rejection, locale-independent timed GPX, transactional route editing/undo/redo, Unicode coordinate input and mini debug ELF parsing.
 
+`SpeedPolicyTest` covers a 35 m/s target with path deviation, enabled/disabled curvature policy, start acceleration/end braking and backward-compatible scene decoding. `SpeedUnitTest` checks conventional conversions, round trips and stable preference identifiers. Display units must not rewrite scene m/s values or alter an active session.
+
 Build `:app:assembleReleaseAndroidTest` to run `TrackLibraryTest` and `LauncherIconTest` against the signed release. They exercise >2 MiB lossless GPX import/rename/export, invalid-import atomicity and platform adaptive-monochrome transparency/safe-region rendering. Instrumentation must share the controller signing identity. Recording schema migration is also checked by retaining a pre-upgrade recording on device.
 
 ## Independent service consumers

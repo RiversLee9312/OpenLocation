@@ -86,7 +86,7 @@
     <string name="language">Bahasa</string>
     <string name="language_system">Setelan bahasa aplikasi sistem</string>
     <string name="about">Tentang</string>
-    <string name="version">Versi 0.1.0</string>
+    <string name="version">Versi %1$s</string>
     <string name="session_channel">Sesi simulasi</string>
     <string name="close">Tutup</string>
     <string name="back">Kembali</string>
@@ -193,4 +193,12 @@
     <string name="baidu_location">Lokasi Baidu</string>
     <string name="verification_scope">Verifikasi berlaku untuk versi dan kanal yang tercantum di profil perangkat.</string>
     <string name="current_route">Rute saat ini</string>
+    <string name="target_speed">Kecepatan target</string>
+    <string name="speed_units">Satuan kecepatan</string>
+    <string name="unit_mps">m/s</string>
+    <string name="unit_kmh">km/h</string>
+    <string name="unit_mph">mph</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">Kurangi kecepatan di tikungan</string>
+    <string name="corner_slowdown_hint">Tikungan dan variasi rute dapat mengurangi kecepatan yang ditetapkan.</string>
 </resources>

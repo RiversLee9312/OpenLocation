@@ -28,6 +28,8 @@ The APKs are produced in `app/build/outputs/apk/debug/` and `probe-app/build/out
 
 The native companion is required for SensorService channels on the reference firmware. It mounts the native library for system_server to execute. The APK rejects a companion with a different SHA-256. No global SELinux changes or additional injection framework are used. Both packages must come from the same build.
 
+Restart after updating the engine or system-service adapters, even if the native-library hash is unchanged: the running system service retains its already-loaded APK classes. Version 0.1.2's new speed policy requires this restart.
+
 ## Adapt a device
 
 Use the [OpenLocation device adaptation skill](skills/openlocation-device-adaptation/SKILL.md) with your coding agent. The skill covers firmware identification, service signatures, native symbol resolution, heading variants, GMS and common map SDK consumers, channel verification, UID isolation and rollback. A new profile must be backed by device tests; adding a model/fingerprint entry alone does not constitute adaptation.
@@ -36,7 +38,8 @@ Use the [OpenLocation device adaptation skill](skills/openlocation-device-adapta
 
 - One deterministic 10 ms dynamics timeline for WGS84 routes, speed, attitude, ideal IMU, gait and step events.
 - Still, walk, run, bicycle and car modes; hand, pocket, backpack and mount placements.
-- Rounded routes with curvature speed limiting, acceleration/braking, configurable speed plans in the scene format.
+- Rounded routes with optional curvature speed limiting (enabled by default), acceleration/braking and configurable speed plans in the scene format. Target speed may be reduced by bends and path deviation when curve limiting is enabled.
+- Persistent m/s, km/h and mph display/input units; scene files and Android APIs retain m/s.
 - GPX import/export and a full-screen route editor: place search, map-center placement, existing-point movement, arbitrary-point deletion, coordinate entry and undo/redo. Changes are committed only on Save. Place search uses the device's geocoder; coordinate entry remains available without it.
 - Private physical GPS recording, timed GPX export and recovery of interrupted tracks.
 - Unified GPX library for imported/recorded/saved tracks: search, preview, rename, export, delete and use as a simulation route. Imported originals retain their metadata unchanged.

@@ -14,6 +14,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
@@ -23,10 +25,12 @@ import androidx.compose.ui.*
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.*
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import dev.openlocation.app.R
 import dev.openlocation.runtime.Contract
+import dev.openlocation.runtime.SpeedUnit
 import dev.openlocation.scenario.*
 
 @Composable
@@ -208,9 +212,9 @@ private fun SceneScreen(state: SceneUiState, vm: SceneViewModel, onRoute: () -> 
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Text(
-                    stringResource(
-                        R.string.speed_value,
+                    speedText(
                         if (active) frame?.velocity?.norm() ?: 0.0 else scene.speedMetersPerSecond,
+                        state.speedUnit,
                     ),
                     style = MaterialTheme.typography.displaySmall,
                     fontWeight = FontWeight.Medium,
@@ -370,6 +374,7 @@ private fun SceneScreen(state: SceneUiState, vm: SceneViewModel, onRoute: () -> 
     if (motionSettings)
         MotionSettings(
             scene,
+            state.speedUnit,
             onDismiss = { motionSettings = false },
             onSave = { draft ->
                 vm.configure { draft }
@@ -575,7 +580,11 @@ private fun DiagnosticsScreen(state: SceneUiState, vm: SceneViewModel) {
                     }
             }
         }
-        Text(stringResource(R.string.verification_scope), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(
+            stringResource(R.string.verification_scope),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
         Text(
             stringResource(
                 R.string.version_value,
@@ -627,6 +636,34 @@ private fun SettingsScreen(
                     ),
             )
         }
+        SectionTitle(R.string.speed_units)
+        Surface(
+            shape = MaterialTheme.shapes.extraLarge,
+            color = MaterialTheme.colorScheme.surfaceContainerLow,
+        ) {
+            Column(Modifier.selectableGroup()) {
+                SpeedUnit.entries.forEach { unit ->
+                    Row(
+                        Modifier.fillMaxWidth()
+                            .heightIn(min = 56.dp)
+                            .selectable(
+                                selected = state.speedUnit == unit,
+                                onClick = { vm.speedUnit(unit) },
+                                role = Role.RadioButton,
+                            )
+                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        RadioButton(selected = state.speedUnit == unit, onClick = null)
+                        Spacer(Modifier.width(16.dp))
+                        Text(
+                            stringResource(unit.label()),
+                            style = MaterialTheme.typography.bodyLarge,
+                        )
+                    }
+                }
+            }
+        }
         SectionTitle(R.string.language)
         OutlinedButton(
             onClick = {
@@ -658,7 +695,7 @@ private fun SettingsScreen(
         SectionTitle(R.string.about)
         Text(stringResource(R.string.app_name), style = MaterialTheme.typography.titleLarge)
         Text(
-            stringResource(R.string.version),
+            stringResource(R.string.version, dev.openlocation.app.BuildConfig.VERSION_NAME),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )

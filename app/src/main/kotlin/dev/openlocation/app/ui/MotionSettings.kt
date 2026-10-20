@@ -4,18 +4,26 @@ package dev.openlocation.app.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import dev.openlocation.app.R
+import dev.openlocation.runtime.SpeedUnit
 import dev.openlocation.scenario.*
 
 /** Complete per-mode draft. Saving is atomic and preserves other modes' profiles. */
 @Composable
-fun MotionSettings(scene: SceneConfig, onDismiss: () -> Unit, onSave: (SceneConfig) -> Unit) {
+fun MotionSettings(
+    scene: SceneConfig,
+    speedUnit: SpeedUnit,
+    onDismiss: () -> Unit,
+    onSave: (SceneConfig) -> Unit,
+) {
     var draft by remember(scene.locomotion) { mutableStateOf(scene) }
     val gait = draft.locomotion == Locomotion.WALK || draft.locomotion == Locomotion.RUN
     ModalBottomSheet(
@@ -34,28 +42,32 @@ fun MotionSettings(scene: SceneConfig, onDismiss: () -> Unit, onSave: (SceneConf
                 style = MaterialTheme.typography.headlineMedium,
             )
             ParameterSlider(
-                R.string.speed,
-                draft.speedMetersPerSecond,
-                0.0..when (draft.locomotion) {
-                        Locomotion.CAR -> 35.0
-                        Locomotion.BICYCLE -> 12.0
-                        else -> 5.0
-                    },
-                stringResource(R.string.speed_value, draft.speedMetersPerSecond),
+                R.string.target_speed,
+                speedUnit.fromMetersPerSecond(draft.speedMetersPerSecond),
+                0.0..speedUnit.fromMetersPerSecond(
+                        when (draft.locomotion) {
+                            Locomotion.CAR -> 35.0
+                            Locomotion.BICYCLE -> 12.0
+                            else -> 5.0
+                        }
+                    ),
+                speedText(draft.speedMetersPerSecond, speedUnit),
             ) {
-                draft = draft.copy(speedMetersPerSecond = it)
+                draft = draft.copy(speedMetersPerSecond = speedUnit.toMetersPerSecond(it))
             }
             ParameterSlider(
                 R.string.speed_variation,
-                draft.speedVariationMetersPerSecond,
-                0.0..when (draft.locomotion) {
-                        Locomotion.CAR -> 8.0
-                        Locomotion.BICYCLE -> 3.0
-                        else -> 1.5
-                    },
-                stringResource(R.string.speed_value, draft.speedVariationMetersPerSecond),
+                speedUnit.fromMetersPerSecond(draft.speedVariationMetersPerSecond),
+                0.0..speedUnit.fromMetersPerSecond(
+                        when (draft.locomotion) {
+                            Locomotion.CAR -> 8.0
+                            Locomotion.BICYCLE -> 3.0
+                            else -> 1.5
+                        }
+                    ),
+                speedText(draft.speedVariationMetersPerSecond, speedUnit),
             ) {
-                draft = draft.copy(speedVariationMetersPerSecond = it)
+                draft = draft.copy(speedVariationMetersPerSecond = speedUnit.toMetersPerSecond(it))
             }
             ParameterSlider(
                 R.string.variation_period,
@@ -121,6 +133,27 @@ fun MotionSettings(scene: SceneConfig, onDismiss: () -> Unit, onSave: (SceneConf
             }
             HorizontalDivider()
             SectionTitle(R.string.routes)
+            Row(
+                Modifier.fillMaxWidth()
+                    .toggleable(
+                        value = draft.curveSpeedLimitEnabled,
+                        role = Role.Switch,
+                        onValueChange = { draft = draft.copy(curveSpeedLimitEnabled = it) },
+                    ),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(stringResource(R.string.corner_slowdown), Modifier.weight(1f))
+                Switch(
+                    checked = draft.curveSpeedLimitEnabled,
+                    onCheckedChange = null,
+                )
+            }
+            if (draft.curveSpeedLimitEnabled)
+                Text(
+                    stringResource(R.string.corner_slowdown_hint),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             ParameterSlider(
                 R.string.route_variation,
                 draft.routeDeviationMeters,

@@ -12,7 +12,7 @@
 
 ## Shared model
 
-WGS84 routes use a local east/north/up approximation limited to ±85° latitude and 50 km extent/length. Catmull–Rom smoothing and arc-length lookup remove abrupt turns. Curvature, acceleration and braking constrain speed. Dynamics are precomputed at 100 Hz, capped at four hours; long scenes can occupy tens of megabytes. This is short-route software modeling, not survey geodesy or measured gait replay.
+WGS84 routes use a local east/north/up approximation limited to ±85° latitude and 50 km extent/length. Catmull–Rom smoothing and arc-length lookup remove abrupt turns. Curvature limiting is enabled by default and includes path deviation; its lateral-acceleration budget is 2.5 m/s². The explicit scene option can disable that constraint while preserving start acceleration and end braking. Controller speed-unit preferences convert only UI values and slider ranges, retaining SI scene/API values. Dynamics are precomputed at 100 Hz, capped at four hours; long scenes can occupy tens of megabytes. This is short-route software modeling, not survey geodesy or measured gait replay.
 
 Speed, stride, arm swing and heading use separate seeded continuous variations. Per-mode profiles preserve settings. The horizontal observation stays within the route corridor. Position, steps and pose share one clock. Phone +Y projects along the instantaneous tangent: tilt is compensated before bounded heading noise (0–15°). Zero amplitude aligns it exactly. Rotation vector, gravity, magnetic field and gyro derive from this quaternion; location bearing describes movement. Stationary output does not add heading motion.
 

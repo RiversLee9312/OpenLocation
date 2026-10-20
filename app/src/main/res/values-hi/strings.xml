@@ -87,7 +87,7 @@
     <string name="language">भाषा</string>
     <string name="language_system">सिस्टम की ऐप भाषा सेटिंग</string>
     <string name="about">जानकारी</string>
-    <string name="version">संस्करण 0.1.0</string>
+    <string name="version">संस्करण %1$s</string>
     <string name="session_channel">सिमुलेशन सत्र</string>
     <string name="close">बंद करें</string>
     <string name="back">वापस</string>
@@ -194,4 +194,12 @@
     <string name="baidu_location">Baidu स्थान</string>
     <string name="verification_scope">सत्यापन डिवाइस प्रोफ़ाइल में सूचीबद्ध संस्करणों और चैनलों पर लागू होता है।</string>
     <string name="current_route">वर्तमान मार्ग</string>
+    <string name="target_speed">लक्ष्य गति</string>
+    <string name="speed_units">गति की इकाई</string>
+    <string name="unit_mps">m/s</string>
+    <string name="unit_kmh">km/h</string>
+    <string name="unit_mph">mph</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">मोड़ों पर गति कम करें</string>
+    <string name="corner_slowdown_hint">मोड़ और मार्ग में बदलाव निर्धारित गति को कम कर सकते हैं।</string>
 </resources>

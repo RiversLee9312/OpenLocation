@@ -86,7 +86,7 @@
     <string name="language">语言</string>
     <string name="language_system">系统应用语言设置</string>
     <string name="about">关于</string>
-    <string name="version">版本 0.1.0</string>
+    <string name="version">版本 %1$s</string>
     <string name="session_channel">模拟场景</string>
     <string name="close">关闭</string>
     <string name="back">返回</string>
@@ -193,4 +193,12 @@
     <string name="baidu_location">百度定位</string>
     <string name="verification_scope">验证范围仅限设备配置中列出的版本和渠道。</string>
     <string name="current_route">当前路线</string>
+    <string name="target_speed">目标速度</string>
+    <string name="speed_units">速度单位</string>
+    <string name="unit_mps">m/s</string>
+    <string name="unit_kmh">km/h</string>
+    <string name="unit_mph">mph</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">弯道自动减速</string>
+    <string name="corner_slowdown_hint">速度可能因弯道和轨迹波动而低于设定值。</string>
 </resources>

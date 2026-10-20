@@ -87,7 +87,7 @@
     <string name="language">زبان</string>
     <string name="language_system">تنظیمات زبان برنامه در سیستم</string>
     <string name="about">درباره</string>
-    <string name="version">نسخهٔ 0.1.0</string>
+    <string name="version">نسخهٔ %1$s</string>
     <string name="session_channel">نشست شبیه‌سازی</string>
     <string name="close">بستن</string>
     <string name="back">بازگشت</string>
@@ -194,4 +194,12 @@
     <string name="baidu_location">موقعیت Baidu</string>
     <string name="verification_scope">تأیید برای نسخه‌ها و کانال‌های فهرست‌شده در نمایه دستگاه اعمال می‌شود.</string>
     <string name="current_route">مسیر فعلی</string>
+    <string name="target_speed">سرعت هدف</string>
+    <string name="speed_units">واحد سرعت</string>
+    <string name="unit_mps">متر بر ثانیه</string>
+    <string name="unit_kmh">کیلومتر بر ساعت</string>
+    <string name="unit_mph">مایل بر ساعت</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">کاهش سرعت در پیچ‌ها</string>
+    <string name="corner_slowdown_hint">پیچ‌ها و تغییرات مسیر ممکن است سرعت تنظیم‌شده را کاهش دهند.</string>
 </resources>

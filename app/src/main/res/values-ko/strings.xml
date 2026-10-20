@@ -86,7 +86,7 @@
     <string name="language">언어</string>
     <string name="language_system">시스템 앱 언어 설정</string>
     <string name="about">정보</string>
-    <string name="version">버전 0.1.0</string>
+    <string name="version">버전 %1$s</string>
     <string name="session_channel">시뮬레이션 세션</string>
     <string name="close">닫기</string>
     <string name="back">뒤로</string>
@@ -193,4 +193,12 @@
     <string name="baidu_location">Baidu 위치</string>
     <string name="verification_scope">검증은 기기 프로필에 나열된 버전 및 채널에 적용됩니다.</string>
     <string name="current_route">현재 경로</string>
+    <string name="target_speed">목표 속도</string>
+    <string name="speed_units">속도 단위</string>
+    <string name="unit_mps">m/s</string>
+    <string name="unit_kmh">km/h</string>
+    <string name="unit_mph">mph</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">곡선 구간 자동 감속</string>
+    <string name="corner_slowdown_hint">곡선 구간과 경로 변화로 설정 속도보다 느려질 수 있습니다.</string>
 </resources>

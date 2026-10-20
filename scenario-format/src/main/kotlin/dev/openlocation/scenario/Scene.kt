@@ -95,6 +95,7 @@ data class SceneConfig(
     val routeWgs84: List<GeoPoint>,
     val routeDeviationMeters: Double = 0.0,
     val routeDeviationWavelengthMeters: Double = 60.0,
+    val curveSpeedLimitEnabled: Boolean = true,
     val locomotion: Locomotion = Locomotion.WALK,
     val phonePlacement: PhonePlacement = PhonePlacement.HAND,
     val speedMetersPerSecond: Double = 1.4,

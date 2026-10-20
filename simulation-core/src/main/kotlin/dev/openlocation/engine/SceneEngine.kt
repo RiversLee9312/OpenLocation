@@ -78,8 +78,10 @@ class SceneEngine(val config: SceneConfig) {
             for (i in 1..(maxSeconds / dt).toInt()) {
                 val t = i * dt
                 var desired = desiredSpeed(t)
-                val curve = abs(route.at(s).curvature)
-                if (curve > 1e-6) desired = min(desired, sqrt(2.5 / curve))
+                if (config.curveSpeedLimitEnabled) {
+                    val curve = abs(route.at(s).curvature)
+                    if (curve > 1e-6) desired = min(desired, sqrt(2.5 / curve))
+                }
                 desired =
                     min(desired, sqrt(2 * acceleration * (route.length - s).coerceAtLeast(0.0)))
                 val next =

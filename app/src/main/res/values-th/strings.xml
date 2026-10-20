@@ -86,7 +86,7 @@
     <string name="language">ภาษา</string>
     <string name="language_system">การตั้งค่าภาษาแอปของระบบ</string>
     <string name="about">เกี่ยวกับ</string>
-    <string name="version">เวอร์ชัน 0.1.0</string>
+    <string name="version">เวอร์ชัน %1$s</string>
     <string name="session_channel">เซสชันจำลอง</string>
     <string name="close">ปิด</string>
     <string name="back">กลับ</string>
@@ -193,4 +193,12 @@
     <string name="baidu_location">ตำแหน่ง Baidu</string>
     <string name="verification_scope">การยืนยันใช้กับเวอร์ชันและช่องทางที่ระบุไว้ในโปรไฟล์อุปกรณ์</string>
     <string name="current_route">เส้นทางปัจจุบัน</string>
+    <string name="target_speed">ความเร็วเป้าหมาย</string>
+    <string name="speed_units">หน่วยความเร็ว</string>
+    <string name="unit_mps">ม./วินาที</string>
+    <string name="unit_kmh">กม./ชม.</string>
+    <string name="unit_mph">ไมล์/ชม.</string>
+    <string name="speed_quantity">%1$.1f %2$s</string>
+    <string name="corner_slowdown">ชะลอความเร็วเมื่อเข้าโค้ง</string>
+    <string name="corner_slowdown_hint">ทางโค้งและความแปรผันของเส้นทางอาจทำให้ความเร็วต่ำกว่าที่ตั้งไว้</string>
 </resources>
