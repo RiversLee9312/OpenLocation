@@ -23,4 +23,21 @@
     <string name="record_limit">Opnamelimiet bereikt</string>
     <string name="latency">Callbackvertraging: %1$.1f ms</string>
     <string name="counter">Stappen in sessie: %1$d</string>
+    <string name="active_channels">%1$d van %2$d kanalen ontvangen gegevens</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Peiling %1$.1f°</string>
+    <string name="capture">Vastleggen</string>
+    <string name="collapse_details">Details verbergen</string>
+    <string name="expand_details">Details tonen</string>
+    <string name="expected_heading">Scènekoers %1$.1f°</string>
+    <string name="filter_sensors">Sensoren filteren</string>
+    <string name="gnss_counts">%1$d/%2$d satellieten gebruikt · %3$d ruwe metingen</string>
+    <string name="heading">Koers</string>
+    <string name="no_sensors">Geen overeenkomende sensoren</string>
+    <string name="not_monitoring">Niet aan het monitoren</string>
+    <string name="overview">Overzicht</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Start de monitoring om sensorgegevens te bekijken.</string>
+    <string name="stop_recording">Opname stoppen</string>
+    <string name="tilt_values">Helling %1$.1f° · rol %2$.1f°</string>
 </resources>

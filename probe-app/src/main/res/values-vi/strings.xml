@@ -23,4 +23,21 @@
     <string name="record_limit">Đã đạt giới hạn ghi</string>
     <string name="latency">Độ trễ lệnh gọi lại: %1$.1f ms</string>
     <string name="counter">Số bước trong phiên: %1$d</string>
+    <string name="active_channels">%1$d/%2$d kênh đang nhận dữ liệu</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Phương vị %1$.1f°</string>
+    <string name="capture">Chụp</string>
+    <string name="collapse_details">Ẩn chi tiết</string>
+    <string name="expand_details">Hiện chi tiết</string>
+    <string name="expected_heading">Hướng của cảnh %1$.1f°</string>
+    <string name="filter_sensors">Lọc cảm biến</string>
+    <string name="gnss_counts">Số vệ tinh dùng: %1$d/%2$d · phép đo thô: %3$d</string>
+    <string name="heading">Hướng</string>
+    <string name="no_sensors">Không có cảm biến phù hợp</string>
+    <string name="not_monitoring">Không theo dõi</string>
+    <string name="overview">Tổng quan</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Bắt đầu theo dõi để xem dữ liệu cảm biến.</string>
+    <string name="stop_recording">Dừng ghi</string>
+    <string name="tilt_values">Góc chúc %1$.1f° · góc nghiêng %2$.1f°</string>
 </resources>

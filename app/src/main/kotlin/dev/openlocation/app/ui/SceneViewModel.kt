@@ -136,6 +136,26 @@ class SceneViewModel(application: Application) : AndroidViewModel(application) {
         old.withProfile(mode, old.profiles[mode] ?: DemoScenes.create(mode).profile())
     }
 
+    fun replaceRoute(points: List<GeoPoint>, completed: (Boolean) -> Unit) {
+        viewModelScope.launch {
+            val success =
+                withContext(Dispatchers.Default) {
+                    runCatching {
+                            check(!store.snapshot().running)
+                            val scene = store.snapshot().scene.copy(routeWgs84 = points)
+                            SceneEngine(
+                                scene
+                            ) // Validate extent, distinct points and total length before
+                              // committing.
+                            check(!store.snapshot().running)
+                            store.configure(scene)
+                        }
+                        .isSuccess
+                }
+            completed(success)
+        }
+    }
+
     fun import(uri: Uri) {
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {

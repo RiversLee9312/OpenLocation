@@ -23,4 +23,21 @@
     <string name="record_limit">Достигнут предел записи</string>
     <string name="latency">Задержка обратного вызова: %1$.1f мс</string>
     <string name="counter">Шаги за сеанс: %1$d</string>
+    <string name="active_channels">%1$d из %2$d каналов получают данные</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Азимут %1$.1f°</string>
+    <string name="capture">Снимок</string>
+    <string name="collapse_details">Скрыть сведения</string>
+    <string name="expand_details">Показать сведения</string>
+    <string name="expected_heading">Азимут сцены %1$.1f°</string>
+    <string name="filter_sensors">Фильтр датчиков</string>
+    <string name="gnss_counts">Использовано спутников: %1$d/%2$d · необработанных измерений: %3$d</string>
+    <string name="heading">Курс</string>
+    <string name="no_sensors">Нет подходящих датчиков</string>
+    <string name="not_monitoring">Мониторинг не ведётся</string>
+    <string name="overview">Обзор</string>
+    <string name="speed_value">%1$.2f м/с</string>
+    <string name="start_to_inspect">Запустите мониторинг, чтобы просмотреть данные датчиков.</string>
+    <string name="stop_recording">Остановить запись</string>
+    <string name="tilt_values">Крен %1$.1f° · тангаж %2$.1f°</string>
 </resources>

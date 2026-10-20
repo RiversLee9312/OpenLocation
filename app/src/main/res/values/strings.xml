@@ -39,7 +39,6 @@
     <string name="recovery">Reacquiring</string>
     <string name="environment_test">Include tunnel test</string>
     <string name="environment_timing">Open 0–20 s · Urban 20–45 s · Tunnel 45–65 s · Recovery 65–80 s</string>
-    <string name="edit_route">Edit route</string>
     <string name="import_gpx">Import GPX</string>
     <string name="export_gpx">Export GPX</string>
     <string name="add_point">Add point</string>
@@ -170,4 +169,31 @@
     <string name="track_source_recorded">Recorded</string>
     <string name="track_summary" translatable="false">%1$s · %2$s</string>
     <string name="system_service_app">System service</string>
+    <string name="edit_route">Edit route</string>
+    <string name="close_editor">Close editor</string>
+    <string name="redo">Redo</string>
+    <string name="route_point_list">Route points</string>
+    <string name="selected_point">Point %1$d of %2$d</string>
+    <string name="select_point_hint">Select a point on the map or in the list to edit it.</string>
+    <string name="move_point">Move</string>
+    <string name="delete_point">Delete point</string>
+    <string name="edit_coordinates">Edit coordinates</string>
+    <string name="map_center_hint">Move the map to position the point.</string>
+    <string name="add_here">Add here</string>
+    <string name="move_here">Move here</string>
+    <string name="map_center">Point position</string>
+    <string name="search_places">Search places or coordinates</string>
+    <string name="search">Search</string>
+    <string name="close_results">Close results</string>
+    <string name="place_search_failed">Place search is unavailable. Try again or enter latitude, longitude.</string>
+    <string name="no_places">No places found</string>
+    <string name="fit_route">Show entire route</string>
+    <string name="new_route">New route</string>
+    <string name="discard_route_title">Discard route changes?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep editing</string>
+    <string name="amap_location">AMap location</string>
+    <string name="baidu_location">Baidu location</string>
+    <string name="verification_scope">Verification applies to the versions and channels listed in the device profile.</string>
+    <string name="coordinate_pair" translatable="false">%1$.6f, %2$.6f</string>
 </resources>

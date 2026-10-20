@@ -16,7 +16,7 @@ for name in NAMES:
     x,y,w,h = map(float,node.attrib['viewBox'].split())
     paths = ''.join(f'<path android:fillColor="#FF000000" android:pathData="{p.attrib["d"]}"/>' for p in node.iter() if p.tag.endswith('path'))
     vector = f'<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="{w:g}" android:viewportHeight="{h:g}"><group android:translateX="{-x:g}" android:translateY="{-y:g}">{paths}</group></vector>\n'
-    if name in ('arrow_back','chevron_right','undo'):
+    if name in ('arrow_back','chevron_right','undo','redo'):
         vector=vector.replace(' android:width=', ' android:autoMirrored="true" android:width=',1)
     (ROOT/'app/src/main/res/drawable'/f'ic_{name}.xml').write_text(vector, encoding='utf-8')
 print(f'{len(NAMES)} official icons fetched')

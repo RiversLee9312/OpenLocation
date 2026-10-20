@@ -23,4 +23,21 @@
     <string name="record_limit">הגעת למגבלת ההקלטה</string>
     <string name="latency">עיכוב callback: %1$.1f ms</string>
     <string name="counter">צעדי ההפעלה: %1$d</string>
+    <string name="active_channels">%1$d מתוך %2$d ערוצים מקבלים נתונים</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">כיוון %1$.1f°</string>
+    <string name="capture">לכידה</string>
+    <string name="collapse_details">הסתרת פרטים</string>
+    <string name="expand_details">הצגת פרטים</string>
+    <string name="expected_heading">כיוון הסצנה %1$.1f°</string>
+    <string name="filter_sensors">סינון חיישנים</string>
+    <string name="gnss_counts">%1$d/%2$d לוויינים בשימוש · %3$d מדידות גולמיות</string>
+    <string name="heading">כיוון</string>
+    <string name="no_sensors">אין חיישנים תואמים</string>
+    <string name="not_monitoring">הניטור אינו פעיל</string>
+    <string name="overview">סקירה כללית</string>
+    <string name="speed_value">%1$.2f מטר/שנייה</string>
+    <string name="start_to_inspect">התחילו ניטור כדי לבדוק נתוני חיישנים.</string>
+    <string name="stop_recording">עצירת הקלטה</string>
+    <string name="tilt_values">עלרוד %1$.1f° · גלגול %2$.1f°</string>
 </resources>

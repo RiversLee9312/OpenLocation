@@ -523,6 +523,8 @@ private fun DiagnosticsScreen(state: SceneUiState, vm: SceneViewModel) {
                         R.string.system_location,
                         R.string.gms_location,
                         R.string.tencent_location,
+                        R.string.amap_location,
+                        R.string.baidu_location,
                         R.string.native_sensors,
                         R.string.gnss_status,
                         R.string.raw_gnss,
@@ -535,6 +537,8 @@ private fun DiagnosticsScreen(state: SceneUiState, vm: SceneViewModel) {
                                 "system_location",
                                 "gms_location",
                                 "tencent_location",
+                                "amap_location",
+                                "baidu_location",
                                 "native_sensors",
                                 "gnss_status",
                                 "raw_gnss",
@@ -571,6 +575,7 @@ private fun DiagnosticsScreen(state: SceneUiState, vm: SceneViewModel) {
                     }
             }
         }
+        Text(stringResource(R.string.verification_scope), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Text(
             stringResource(
                 R.string.version_value,

@@ -21,6 +21,8 @@ import org.maplibre.android.style.layers.PropertyFactory.*
 import org.maplibre.android.style.sources.GeoJsonSource
 import org.maplibre.geojson.*
 
+data class MapFocus(val point: GeoPoint, val request: Int)
+
 /**
  * Rendering is separate from route planning. No geolocation permission or online routing needed.
  */
@@ -33,6 +35,12 @@ fun RouteMap(
     deviationMeters: Double = 0.0,
     fitToPoints: Boolean = true,
     followPosition: Boolean = false,
+    controlPoints: List<GeoPoint> = emptyList(),
+    selectedIndex: Int? = null,
+    focus: MapFocus? = null,
+    fitRequest: Int = 0,
+    onVertex: (Int) -> Unit = {},
+    onCenter: (GeoPoint) -> Unit = {},
     onPoint: (GeoPoint) -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -43,6 +51,9 @@ fun RouteMap(
     var failed by remember { mutableStateOf(false) }
     val latestCallback by rememberUpdatedState(onPoint)
     val latestEditable by rememberUpdatedState(editable)
+    val latestVertices by rememberUpdatedState(controlPoints)
+    val latestVertexCallback by rememberUpdatedState(onVertex)
+    val latestCenterCallback by rememberUpdatedState(onCenter)
     val primary = MaterialTheme.colorScheme.primary
     DisposableEffect(mapView, lifecycle) {
         val observer = LifecycleEventObserver { _, event ->
@@ -74,10 +85,42 @@ fun RouteMap(
                 isCompassEnabled = false
             }
             m.addOnMapClickListener { p ->
-                if (latestEditable) {
+                val tap = m.projection.toScreenLocation(p)
+                val radius = 28 * context.resources.displayMetrics.density
+                val nearest =
+                    latestVertices.indices.minByOrNull { index ->
+                        val v = latestVertices[index]
+                        val screen = m.projection.toScreenLocation(LatLng(v.latitude, v.longitude))
+                        kotlin.math.hypot(
+                            (screen.x - tap.x).toDouble(),
+                            (screen.y - tap.y).toDouble(),
+                        )
+                    }
+                val hit = nearest?.takeIf {
+                    val v = latestVertices[it]
+                    val screen = m.projection.toScreenLocation(LatLng(v.latitude, v.longitude))
+                    kotlin.math.hypot(
+                        (screen.x - tap.x).toDouble(),
+                        (screen.y - tap.y).toDouble(),
+                    ) <= radius
+                }
+                if (hit != null) {
+                    latestVertexCallback(hit)
+                    true
+                } else if (latestEditable) {
                     latestCallback(GeoPoint(p.latitude, p.longitude))
                     true
                 } else false
+            }
+            m.addOnCameraIdleListener {
+                val target = m.cameraPosition.target
+                if (target != null && target.latitude in -85.0..85.0)
+                    latestCenterCallback(GeoPoint(target.latitude, target.longitude))
+            }
+            m.addOnCameraMoveListener {
+                val target = m.cameraPosition.target
+                if (target != null && target.latitude in -85.0..85.0)
+                    latestCenterCallback(GeoPoint(target.latitude, target.longitude))
             }
             val json =
                 """{"version":8,"sources":{"osm":{"type":"raster","tiles":["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],"tileSize":256,"attribution":"© OpenStreetMap contributors"}},"layers":[{"id":"map","type":"raster","source":"osm","paint":{"raster-saturation":-0.8,"raster-opacity":0.7}}]}"""
@@ -85,6 +128,8 @@ fun RouteMap(
                 s.addSource(GeoJsonSource("route"))
                 s.addSource(GeoJsonSource("cursor"))
                 s.addSource(GeoJsonSource("start"))
+                s.addSource(GeoJsonSource("vertices"))
+                s.addSource(GeoJsonSource("selection"))
                 s.addLayer(
                     LineLayer("route-corridor", "route")
                         .withProperties(
@@ -113,6 +158,24 @@ fun RouteMap(
                         )
                 )
                 s.addLayer(
+                    CircleLayer("route-vertices", "vertices")
+                        .withProperties(
+                            circleColor(android.graphics.Color.WHITE),
+                            circleRadius(10f),
+                            circleStrokeColor(android.graphics.Color.rgb(85, 81, 154)),
+                            circleStrokeWidth(2f),
+                        )
+                )
+                s.addLayer(
+                    CircleLayer("route-selection", "selection")
+                        .withProperties(
+                            circleColor(android.graphics.Color.rgb(85, 81, 154)),
+                            circleRadius(16f),
+                            circleStrokeColor(android.graphics.Color.WHITE),
+                            circleStrokeWidth(3f),
+                        )
+                )
+                s.addLayer(
                     CircleLayer("route-cursor", "cursor")
                         .withProperties(
                             circleColor(android.graphics.Color.rgb(85, 81, 154)),
@@ -127,7 +190,7 @@ fun RouteMap(
     }
     LaunchedEffect(style, points, deviationMeters, primary) {
         val metersPerPixelAtZero =
-            156543.03392 * kotlin.math.cos(Math.toRadians(points.first().latitude))
+            156543.03392 * kotlin.math.cos(Math.toRadians(points.firstOrNull()?.latitude ?: 0.0))
         val widthAtZero = (2 * deviationMeters / metersPerPixelAtZero).toFloat()
         style
             ?.getLayerAs<LineLayer>("route-corridor")
@@ -153,11 +216,29 @@ fun RouteMap(
         style
             ?.getSourceAs<GeoJsonSource>("route")
             ?.setGeoJson(
-                LineString.fromLngLats(points.map { Point.fromLngLat(it.longitude, it.latitude) })
+                FeatureCollection.fromFeatures(
+                    if (points.size >= 2)
+                        listOf(
+                            Feature.fromGeometry(
+                                LineString.fromLngLats(
+                                    points.map { Point.fromLngLat(it.longitude, it.latitude) }
+                                )
+                            )
+                        )
+                    else emptyList()
+                )
             )
         style
             ?.getSourceAs<GeoJsonSource>("start")
-            ?.setGeoJson(Point.fromLngLat(points.first().longitude, points.first().latitude))
+            ?.setGeoJson(
+                FeatureCollection.fromFeatures(
+                    listOfNotNull(
+                        points.firstOrNull()?.let {
+                            Feature.fromGeometry(Point.fromLngLat(it.longitude, it.latitude))
+                        }
+                    )
+                )
+            )
         if (
             fitToPoints &&
                 points.size >= 2 &&
@@ -182,6 +263,53 @@ fun RouteMap(
                 )
             )
     }
+    LaunchedEffect(style, controlPoints, selectedIndex, primary) {
+        val features = controlPoints.mapIndexed { index, point ->
+            Feature.fromGeometry(Point.fromLngLat(point.longitude, point.latitude)).apply {
+                addStringProperty("number", (index + 1).toString())
+            }
+        }
+        style
+            ?.getSourceAs<GeoJsonSource>("vertices")
+            ?.setGeoJson(FeatureCollection.fromFeatures(features))
+        style
+            ?.getSourceAs<GeoJsonSource>("selection")
+            ?.setGeoJson(
+                FeatureCollection.fromFeatures(
+                    listOfNotNull(selectedIndex?.let { features.getOrNull(it) })
+                )
+            )
+    }
+    LaunchedEffect(style, focus) {
+        focus?.let {
+            map?.animateCamera(
+                CameraUpdateFactory.newLatLngZoom(
+                    LatLng(it.point.latitude, it.point.longitude),
+                    map?.cameraPosition?.zoom?.coerceAtLeast(16.0) ?: 16.0,
+                )
+            )
+        }
+    }
+    LaunchedEffect(style, fitRequest) {
+        if (style != null && fitRequest > 0 && points.isNotEmpty()) {
+            if (points.size > 1 && points.distinct().size > 1)
+                map?.animateCamera(
+                    CameraUpdateFactory.newLatLngBounds(
+                        LatLngBounds.Builder()
+                            .includes(points.map { LatLng(it.latitude, it.longitude) })
+                            .build(),
+                        64,
+                    )
+                )
+            else
+                map?.animateCamera(
+                    CameraUpdateFactory.newLatLngZoom(
+                        LatLng(points.first().latitude, points.first().longitude),
+                        16.0,
+                    )
+                )
+        }
+    }
     LaunchedEffect(style, position, primary, followPosition) {
         val color =
             android.graphics.Color.argb(
@@ -192,6 +320,13 @@ fun RouteMap(
             )
         style?.getLayerAs<LineLayer>("route-stroke")?.setProperties(lineColor(color))
         style?.getLayerAs<CircleLayer>("route-cursor")?.setProperties(circleColor(color))
+        style?.getLayerAs<CircleLayer>("route-start")?.setProperties(circleStrokeColor(color))
+        style?.getLayerAs<CircleLayer>("route-vertices")?.setProperties(circleStrokeColor(color))
+        style?.getLayerAs<CircleLayer>("route-selection")?.setProperties(circleColor(color))
+        if (position == null)
+            style
+                ?.getSourceAs<GeoJsonSource>("cursor")
+                ?.setGeoJson(FeatureCollection.fromFeatures(emptyArray<Feature>()))
         position?.let {
             if (followPosition)
                 map?.moveCamera(

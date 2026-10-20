@@ -69,10 +69,11 @@ internal class ServerSensorAdapter(private val client: SessionClient) {
             override fun run() {
                 try {
                     val frame = if (client.active) client.frame() else null
-                    val flat = FloatArray(40)
+                    val types = dev.openlocation.runtime.Contract.SUPPORTED_SENSORS
+                    val flat = FloatArray(types.size * 6)
                     if (frame != null)
-                        intArrayOf(1, 2, 4, 9, 10, 11, 18, 19).forEachIndexed { i, type ->
-                            frame.values(type)?.copyInto(flat, i * 5)
+                        types.forEachIndexed { i, type ->
+                            frame.values(type)?.copyInto(flat, i * 6)
                         }
                     ServiceNative.publish(
                         client.active,

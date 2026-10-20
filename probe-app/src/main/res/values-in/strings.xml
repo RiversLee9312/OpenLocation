@@ -23,4 +23,21 @@
     <string name="record_limit">Batas rekaman tercapai</string>
     <string name="latency">Latensi callback: %1$.1f ms</string>
     <string name="counter">Langkah sesi: %1$d</string>
+    <string name="active_channels">%1$d dari %2$d kanal menerima data</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Arah %1$.1f°</string>
+    <string name="capture">Ambil</string>
+    <string name="collapse_details">Sembunyikan detail</string>
+    <string name="expand_details">Tampilkan detail</string>
+    <string name="expected_heading">Arah adegan %1$.1f°</string>
+    <string name="filter_sensors">Filter sensor</string>
+    <string name="gnss_counts">%1$d/%2$d satelit digunakan · %3$d pengukuran mentah</string>
+    <string name="heading">Arah</string>
+    <string name="no_sensors">Tidak ada sensor yang cocok</string>
+    <string name="not_monitoring">Tidak memantau</string>
+    <string name="overview">Ringkasan</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Mulai pemantauan untuk memeriksa data sensor.</string>
+    <string name="stop_recording">Hentikan rekaman</string>
+    <string name="tilt_values">Pitch %1$.1f° · roll %2$.1f°</string>
 </resources>

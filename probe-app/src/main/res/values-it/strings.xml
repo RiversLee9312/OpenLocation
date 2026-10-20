@@ -23,4 +23,21 @@
     <string name="record_limit">Limite di registrazione raggiunto</string>
     <string name="latency">Ritardo del callback: %1$.1f ms</string>
     <string name="counter">Passi della sessione: %1$d</string>
+    <string name="active_channels">%1$d di %2$d canali ricevono dati</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Direzione %1$.1f°</string>
+    <string name="capture">Acquisisci</string>
+    <string name="collapse_details">Nascondi dettagli</string>
+    <string name="expand_details">Mostra dettagli</string>
+    <string name="expected_heading">Direzione della scena %1$.1f°</string>
+    <string name="filter_sensors">Filtra sensori</string>
+    <string name="gnss_counts">%1$d/%2$d satelliti usati · %3$d misure grezze</string>
+    <string name="heading">Direzione</string>
+    <string name="no_sensors">Nessun sensore corrispondente</string>
+    <string name="not_monitoring">Monitoraggio non attivo</string>
+    <string name="overview">Panoramica</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Avvia il monitoraggio per esaminare i dati dei sensori.</string>
+    <string name="stop_recording">Interrompi registrazione</string>
+    <string name="tilt_values">Beccheggio %1$.1f° · rollio %2$.1f°</string>
 </resources>

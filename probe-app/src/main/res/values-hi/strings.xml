@@ -23,4 +23,21 @@
     <string name="record_limit">रिकॉर्डिंग सीमा पूरी हो गई</string>
     <string name="latency">कॉलबैक विलंब: %1$.1f ms</string>
     <string name="counter">सत्र के कदम: %1$d</string>
+    <string name="active_channels">%1$d/%2$d चैनलों में डेटा मिल रहा है</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">दिशा %1$.1f°</string>
+    <string name="capture">कैप्चर</string>
+    <string name="collapse_details">विवरण छिपाएँ</string>
+    <string name="expand_details">विवरण दिखाएँ</string>
+    <string name="expected_heading">सीन दिशा %1$.1f°</string>
+    <string name="filter_sensors">सेंसर फ़िल्टर करें</string>
+    <string name="gnss_counts">उपयोग किए गए उपग्रह %1$d/%2$d · कच्चे मापन %3$d</string>
+    <string name="heading">दिशा</string>
+    <string name="no_sensors">कोई मेल खाने वाला सेंसर नहीं</string>
+    <string name="not_monitoring">मॉनिटरिंग नहीं हो रही</string>
+    <string name="overview">अवलोकन</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">सेंसर डेटा देखने के लिए मॉनिटरिंग शुरू करें।</string>
+    <string name="stop_recording">रिकॉर्डिंग रोकें</string>
+    <string name="tilt_values">पिच %1$.1f° · रोल %2$.1f°</string>
 </resources>

@@ -23,4 +23,21 @@
     <string name="record_limit">Se alcanzó el límite de grabación</string>
     <string name="latency">Retraso de la devolución: %1$.1f ms</string>
     <string name="counter">Pasos de la sesión: %1$d</string>
+    <string name="active_channels">%1$d de %2$d canales reciben datos</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Rumbo %1$.1f°</string>
+    <string name="capture">Capturar</string>
+    <string name="collapse_details">Ocultar detalles</string>
+    <string name="expand_details">Mostrar detalles</string>
+    <string name="expected_heading">Rumbo de la escena %1$.1f°</string>
+    <string name="filter_sensors">Filtrar sensores</string>
+    <string name="gnss_counts">%1$d/%2$d satélites usados · %3$d mediciones sin procesar</string>
+    <string name="heading">Rumbo</string>
+    <string name="no_sensors">No hay sensores coincidentes</string>
+    <string name="not_monitoring">Sin supervisión</string>
+    <string name="overview">Resumen</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Inicia la supervisión para consultar los datos de los sensores.</string>
+    <string name="stop_recording">Detener grabación</string>
+    <string name="tilt_values">Inclinación %1$.1f° · balanceo %2$.1f°</string>
 </resources>

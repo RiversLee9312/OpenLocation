@@ -30,20 +30,20 @@ The native companion is required for SensorService channels on the reference fir
 
 ## Adapt a device
 
-Use the [OpenLocation device adaptation skill](skills/openlocation-device-adaptation/SKILL.md) with your coding agent. The skill covers firmware identification, service signatures, native symbol resolution, channel verification, UID isolation and rollback. A new profile must be backed by device tests; adding a model/fingerprint entry alone does not constitute adaptation.
+Use the [OpenLocation device adaptation skill](skills/openlocation-device-adaptation/SKILL.md) with your coding agent. The skill covers firmware identification, service signatures, native symbol resolution, heading variants, GMS and common map SDK consumers, channel verification, UID isolation and rollback. A new profile must be backed by device tests; adding a model/fingerprint entry alone does not constitute adaptation.
 
 ## Features
 
 - One deterministic 10 ms dynamics timeline for WGS84 routes, speed, attitude, ideal IMU, gait and step events.
 - Still, walk, run, bicycle and car modes; hand, pocket, backpack and mount placements.
 - Rounded routes with curvature speed limiting, acceleration/braking, configurable speed plans in the scene format.
-- GPX import/export, map point editing, coordinate entry and bounded offline route evaluation.
+- GPX import/export and a full-screen route editor: place search, map-center placement, existing-point movement, arbitrary-point deletion, coordinate entry and undo/redo. Changes are committed only on Save. Place search uses the device's geocoder; coordinate entry remains available without it.
 - Private physical GPS recording, timed GPX export and recovery of interrupted tracks.
 - Unified GPX library for imported/recorded/saved tracks: search, preview, rename, export, delete and use as a simulation route. Imported originals retain their metadata unchanged.
 - Per-mode speed, stride, arm swing and heading variation; bounded route deviations.
 - Location observation environments: open, urban, obstructed, tunnel and reacquisition. IMU truth continues during loss of GPS.
-- Service-side location and GNSS transports, plus eight sensor types delivered through normal application APIs. Independent consumer tests cover Java and native queues and direct channels; see current evidence for verified channels.
-- Probe diagnostics per sensor instance, callback timestamps, frequency, gaps and callback delay. NDJSON recording preserves copied arrays and hardware metadata.
+- Service-side location and GNSS transports, plus 14 sensor types delivered through normal application APIs, including legacy orientation, rotation/game/geomagnetic vectors and uncalibrated IMU variants. Independent consumer tests cover Java and native queues and direct channels; see current evidence for verified channels.
+- Probe overview, heading comparison and searchable sensor-instance diagnostics, including callback timestamps, frequency, gaps and delay. NDJSON recording preserves copied arrays and hardware metadata.
 - Material 3 Expressive theme and shape-morphing primary controls, dynamic wallpaper colors, light/dark mode, adaptive launcher icon with a monochrome layer.
 - Android string resources, plurals, positional format parameters and RTL-aware layouts form the localization boundary.
 - English, Simplified Chinese and 20 other languages; first-use notice and readable open source licenses.
@@ -51,6 +51,8 @@ Use the [OpenLocation device adaptation skill](skills/openlocation-device-adapta
 See [architecture](docs/architecture.md), [testing](docs/testing.md), [design](docs/design.md), [internationalization](docs/i18n.md) and [development status](docs/status.md) for exact scope and evidence. GNSS measurements are generated from orbital data and configurable signal noise. This is a software observation and motion model, not a radio-frequency simulator.
 
 SDKs deriving server-side Wi-Fi/cellular location can bypass Android location transports. Mixed brokers fail closed to protect unselected recipients. Installed applications with ordinary app UIDs can be selected; controller/Android/system service UIDs are excluded. This cannot guarantee every proprietary SDK. No test-application package branches are present.
+
+The reference firmware has passed a real GMS Fused Location Provider client test and GNSS-backed observations in Tencent Maps, AMap and Baidu Maps. Consumer versions and channel scope are recorded in [SDK verification](docs/verification/sdk-consumers-0.1.1.md); these results do not certify all standalone SDK versions or network-only fixes.
 
 ## Release and license
 

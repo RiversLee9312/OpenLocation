@@ -23,4 +23,21 @@
     <string name="record_limit">محدودیت ضبط پر شد</string>
     <string name="latency">تأخیر callback: %1$.1f ms</string>
     <string name="counter">گام‌های نشست: %1$d</string>
+    <string name="active_channels">داده در %1$d مورد از %2$d کانال دریافت می‌شود</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">سمت %1$.1f°</string>
+    <string name="capture">ثبت</string>
+    <string name="collapse_details">پنهان‌کردن جزئیات</string>
+    <string name="expand_details">نمایش جزئیات</string>
+    <string name="expected_heading">سمت صحنه %1$.1f°</string>
+    <string name="filter_sensors">فیلتر حسگرها</string>
+    <string name="gnss_counts">ماهواره‌های استفاده‌شده %1$d/%2$d · اندازه‌گیری‌های خام %3$d</string>
+    <string name="heading">جهت</string>
+    <string name="no_sensors">حسگری یافت نشد</string>
+    <string name="not_monitoring">پایش غیرفعال است</string>
+    <string name="overview">نمای کلی</string>
+    <string name="speed_value">%1$.2f متر بر ثانیه</string>
+    <string name="start_to_inspect">برای مشاهده داده‌های حسگر، پایش را شروع کنید.</string>
+    <string name="stop_recording">توقف ضبط</string>
+    <string name="tilt_values">گام %1$.1f° · رول %2$.1f°</string>
 </resources>

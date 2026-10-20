@@ -23,4 +23,21 @@
     <string name="record_limit">تم بلوغ حد التسجيل</string>
     <string name="latency">تأخير الاستدعاء: %1$.1f ms</string>
     <string name="counter">خطوات الجلسة: %1$d</string>
+    <string name="active_channels">%1$d من أصل %2$d قناة تستقبل البيانات</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">الاتجاه %1$.1f°</string>
+    <string name="capture">التقاط</string>
+    <string name="collapse_details">إخفاء التفاصيل</string>
+    <string name="expand_details">إظهار التفاصيل</string>
+    <string name="expected_heading">اتجاه المشهد %1$.1f°</string>
+    <string name="filter_sensors">تصفية المستشعرات</string>
+    <string name="gnss_counts">الأقمار المستخدمة %1$d/%2$d · القياسات الخام %3$d</string>
+    <string name="heading">الاتجاه</string>
+    <string name="no_sensors">لا توجد مستشعرات مطابقة</string>
+    <string name="not_monitoring">لا توجد مراقبة</string>
+    <string name="overview">نظرة عامة</string>
+    <string name="speed_value">%1$.2f م/ث</string>
+    <string name="start_to_inspect">ابدأ المراقبة للاطلاع على بيانات المستشعرات.</string>
+    <string name="stop_recording">إيقاف التسجيل</string>
+    <string name="tilt_values">الميل للأمام %1$.1f° · الميل الجانبي %2$.1f°</string>
 </resources>

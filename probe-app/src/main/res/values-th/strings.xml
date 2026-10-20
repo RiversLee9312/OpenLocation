@@ -23,4 +23,21 @@
     <string name="record_limit">ถึงขีดจำกัดการบันทึกแล้ว</string>
     <string name="latency">ความหน่วงของ callback: %1$.1f ms</string>
     <string name="counter">จำนวนก้าวในเซสชัน: %1$d</string>
+    <string name="active_channels">%1$d จาก %2$d ช่องทางกำลังรับข้อมูล</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">มุมทิศ %1$.1f°</string>
+    <string name="capture">จับภาพ</string>
+    <string name="collapse_details">ซ่อนรายละเอียด</string>
+    <string name="expand_details">แสดงรายละเอียด</string>
+    <string name="expected_heading">ทิศทางของฉาก %1$.1f°</string>
+    <string name="filter_sensors">กรองเซ็นเซอร์</string>
+    <string name="gnss_counts">ดาวเทียมที่ใช้ %1$d/%2$d · การวัดดิบ %3$d</string>
+    <string name="heading">ทิศทาง</string>
+    <string name="no_sensors">ไม่พบเซ็นเซอร์ที่ตรงกัน</string>
+    <string name="not_monitoring">ไม่ได้ตรวจสอบข้อมูล</string>
+    <string name="overview">ภาพรวม</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">เริ่มตรวจสอบเพื่อดูข้อมูลเซ็นเซอร์</string>
+    <string name="stop_recording">หยุดบันทึก</string>
+    <string name="tilt_values">มุมก้มเงย %1$.1f° · มุมเอียง %2$.1f°</string>
 </resources>

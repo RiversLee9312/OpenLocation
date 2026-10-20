@@ -1,0 +1,6 @@
+
+dev.openlocation.probe.GmsLocationTest:.
+
+Time: 3.483
+
+OK (1 test)

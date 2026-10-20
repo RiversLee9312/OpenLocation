@@ -23,4 +23,21 @@
     <string name="record_limit">記録上限に達しました</string>
     <string name="latency">コールバック遅延：%1$.1f ms</string>
     <string name="counter">セッションの歩数：%1$d</string>
+    <string name="active_channels">%1$d/%2$d チャンネルで受信中</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">方位 %1$.1f°</string>
+    <string name="capture">キャプチャ</string>
+    <string name="collapse_details">詳細を非表示</string>
+    <string name="expand_details">詳細を表示</string>
+    <string name="expected_heading">シーンの方位 %1$.1f°</string>
+    <string name="filter_sensors">センサーを絞り込む</string>
+    <string name="gnss_counts">使用衛星 %1$d/%2$d · 生測定値 %3$d 件</string>
+    <string name="heading">方位</string>
+    <string name="no_sensors">一致するセンサーがありません</string>
+    <string name="not_monitoring">モニタリングしていません</string>
+    <string name="overview">概要</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">センサーデータを見るには、モニタリングを開始してください。</string>
+    <string name="stop_recording">記録を停止</string>
+    <string name="tilt_values">ピッチ %1$.1f° · ロール %2$.1f°</string>
 </resources>

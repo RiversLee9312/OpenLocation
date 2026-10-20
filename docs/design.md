@@ -6,6 +6,10 @@ Wallpaper colors use Android `dynamicLightColorScheme` / `dynamicDarkColorScheme
 
 Copy describes actions and state: Start, Pause, Resume, Stop, Route, Diagnostics. No promotional headlines or slogans are included. Technical scope and model limitations appear in Diagnostics, where they affect interpretation. User-visible strings belong in Android resources, not engine enums or hook logs.
 
+The route editor reserves most of the screen for the map. A fixed center pin and a live coordinate readout make placement explicit; selecting a vertex opens Move and Delete actions. Search results jump the camera without mutating the draft. The bottom sheet lists ordered points, while undo/redo and Save operate on an isolated draft. Existing routes use the same editor. An explicit Save validates and commits the draft; discarding it preserves the stored route.
+
+The probe separates Overview, Heading and Sensors. Overview shows source state and capture controls; Heading compares actual Android sensor events with the scene reference and identifies each sensor by its numeric type and instance. Sensor cards expose rates and timing first, with hardware metadata on expansion. Both apps use the same expressive theme and dynamic color roles. Directional edit icons mirror in RTL.
+
 ## Primary sources
 
 - [Material 3 Expressive](https://m3.material.io/)

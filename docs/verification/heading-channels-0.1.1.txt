@@ -1,0 +1,6 @@
+
+dev.openlocation.probe.HeadingChannelsTest:.
+
+Time: 3.557
+
+OK (1 test)

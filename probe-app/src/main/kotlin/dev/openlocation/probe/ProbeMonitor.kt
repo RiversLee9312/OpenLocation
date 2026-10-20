@@ -33,6 +33,10 @@ data class ProbeState(
     val location: Location? = null,
     val reference: SampleFrame? = null,
     val limitReached: Boolean = false,
+    val selected: Boolean = false,
+    val visibleSatellites: Int = 0,
+    val usedSatellites: Int = 0,
+    val measurements: Int = 0,
 )
 
 /**
@@ -53,6 +57,23 @@ class ProbeMonitor(private val context: Context) : SensorEventListener {
     private var writer: java.io.BufferedWriter? = null
     private var bytes = 0L
     val recordingFile = File(context.filesDir, "recording.ndjson")
+    private val satelliteCallback =
+        object : GnssStatus.Callback() {
+            override fun onSatelliteStatusChanged(status: GnssStatus) {
+                _state.update {
+                    it.copy(
+                        visibleSatellites = status.satelliteCount,
+                        usedSatellites = (0 until status.satelliteCount).count(status::usedInFix),
+                    )
+                }
+            }
+        }
+    private val measurementCallback =
+        object : GnssMeasurementsEvent.Callback() {
+            override fun onGnssMeasurementsReceived(event: GnssMeasurementsEvent) {
+                _state.update { it.copy(measurements = event.measurements.size) }
+            }
+        }
     private val locationListener = LocationListener { location ->
         _state.update { it.copy(location = Location(location)) }
         append(
@@ -81,6 +102,8 @@ class ProbeMonitor(private val context: Context) : SensorEventListener {
                 }
             runCatching {
                 locations.requestLocationUpdates("gps", 500L, 0f, locationListener, worker.looper)
+                locations.registerGnssStatusCallback(satelliteCallback, handler)
+                locations.registerGnssMeasurementsCallback(measurementCallback, handler)
             }
             handler.post(refresh)
         }
@@ -91,6 +114,8 @@ class ProbeMonitor(private val context: Context) : SensorEventListener {
         handler.post {
             sensors.unregisterListener(this)
             locations.removeUpdates(locationListener)
+            locations.unregisterGnssStatusCallback(satelliteCallback)
+            locations.unregisterGnssMeasurementsCallback(measurementCallback)
             handler.removeCallbacks(refresh)
             stopRecording()
         }
@@ -207,11 +232,15 @@ class ProbeMonitor(private val context: Context) : SensorEventListener {
                             bundle ->
                             _state.update {
                                 it.copy(
+                                    selected =
+                                        bundle
+                                            .getIntArray("targets")
+                                            ?.contains(android.os.Process.myUid()) == true,
                                     hooked =
                                         bundle
                                             .getString("backend", "")
                                             .split(",")
-                                            .contains("sensors")
+                                            .contains("sensors"),
                                 )
                             }
                             bundle.getString("session")
@@ -227,7 +256,7 @@ class ProbeMonitor(private val context: Context) : SensorEventListener {
                 _state.update {
                     it.copy(
                         readings = rows.values.toList(),
-                        synthetic = it.hooked && s?.running == true,
+                        synthetic = it.selected && it.hooked && s?.running == true,
                         reference = s?.let { engine?.sample(it.progressNs(now), now) },
                     )
                 }

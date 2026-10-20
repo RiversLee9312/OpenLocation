@@ -14,8 +14,8 @@ android {
         applicationId = "dev.openlocation.probe" + providers.gradleProperty("observerSuffix").orNull.orEmpty()
         minSdk = 34
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk { abiFilters += "arm64-v8a" }
     }
@@ -55,4 +55,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation("com.google.android.gms:play-services-location:21.3.0")
+    androidTestImplementation("androidx.fragment:fragment:1.8.2")
 }

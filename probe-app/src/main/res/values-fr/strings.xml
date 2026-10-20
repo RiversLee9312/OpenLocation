@@ -23,4 +23,21 @@
     <string name="record_limit">Limite d’enregistrement atteinte</string>
     <string name="latency">Délai du rappel : %1$.1f ms</string>
     <string name="counter">Pas de la session : %1$d</string>
+    <string name="active_channels">%1$d/%2$d canaux reçoivent des données</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Cap %1$.1f°</string>
+    <string name="capture">Capturer</string>
+    <string name="collapse_details">Masquer les détails</string>
+    <string name="expand_details">Afficher les détails</string>
+    <string name="expected_heading">Cap de la scène %1$.1f°</string>
+    <string name="filter_sensors">Filtrer les capteurs</string>
+    <string name="gnss_counts">%1$d/%2$d satellites utilisés · %3$d mesures brutes</string>
+    <string name="heading">Cap</string>
+    <string name="no_sensors">Aucun capteur correspondant</string>
+    <string name="not_monitoring">Surveillance inactive</string>
+    <string name="overview">Aperçu</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Démarrez la surveillance pour consulter les données des capteurs.</string>
+    <string name="stop_recording">Arrêter l’enregistrement</string>
+    <string name="tilt_values">Tangage %1$.1f° · roulis %2$.1f°</string>
 </resources>

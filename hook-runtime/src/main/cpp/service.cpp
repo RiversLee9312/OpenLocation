@@ -29,8 +29,9 @@ static Hook hooker = nullptr;
 static std::recursive_mutex mutex;
 static bool active = false, delivering = false;
 static std::set<int> targets;
-static constexpr std::array<int, 8> types{1, 2, 4, 9, 10, 11, 18, 19};
-static std::array<std::array<float, 5>, 8> values{};
+static constexpr std::array<int, 14> types{1, 2, 3, 4, 9, 10, 11, 14, 15, 16, 18, 19, 20, 35};
+static constexpr int payloadSize = types.size() * 6;
+static std::array<std::array<float, 6>, types.size()> values{};
 static int64_t timestamp = 0;
 static uint64_t steps = 0;
 static std::map<int, int> handleTypes;
@@ -124,10 +125,10 @@ static ASensorEvent event(int handle, int type) {
   e.timestamp = timestamp;
   const int index = indexOf(type);
   if (index >= 0)
-    memcpy(e.data, values[index].data(), sizeof(float) * 5);
+    memcpy(e.data, values[index].data(), sizeof(float) * 6);
   if (type == 19)
     e.u64.step_counter = steps;
-  if (type == 1 || type == 2 || type == 4 || type == 9 || type == 10)
+  if (type == 1 || type == 2 || type == 3 || type == 4 || type == 9 || type == 10)
     e.vector.status = ASENSOR_STATUS_ACCURACY_HIGH;
   return e;
 }
@@ -465,7 +466,7 @@ extern "C" JNIEXPORT jint JNICALL
 Java_dev_openlocation_hook_ServiceNative_publish(
     JNIEnv *env, jclass, jboolean enabled, jboolean running, jintArray uids,
     jlong time, jlong count, jfloatArray data) {
-  if (env->GetArrayLength(data) != 40)
+  if (env->GetArrayLength(data) != payloadSize)
     return 0;
   if (!metadataLoaded) {
     auto *manager = ASensorManager_getInstanceForPackage("android");
@@ -485,7 +486,7 @@ Java_dev_openlocation_hook_ServiceNative_publish(
   targets = std::set<int>(uidList.begin(), uidList.end());
   timestamp = time;
   steps = static_cast<uint64_t>(count);
-  env->GetFloatArrayRegion(data, 0, 40, values[0].data());
+  env->GetFloatArrayRegion(data, 0, payloadSize, values[0].data());
   for (auto &[owner, ptr] : channels) {
     auto &channel = *ptr;
     const bool synth = selected(channel.uid);

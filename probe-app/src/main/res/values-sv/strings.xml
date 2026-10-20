@@ -23,4 +23,21 @@
     <string name="record_limit">Inspelningsgränsen har nåtts</string>
     <string name="latency">Callbackfördröjning: %1$.1f ms</string>
     <string name="counter">Steg i sessionen: %1$d</string>
+    <string name="active_channels">%1$d av %2$d kanaler tar emot data</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Bäring %1$.1f°</string>
+    <string name="capture">Fånga</string>
+    <string name="collapse_details">Dölj detaljer</string>
+    <string name="expand_details">Visa detaljer</string>
+    <string name="expected_heading">Scenens kurs %1$.1f°</string>
+    <string name="filter_sensors">Filtrera sensorer</string>
+    <string name="gnss_counts">Satelliter använda: %1$d/%2$d · råmätningar: %3$d</string>
+    <string name="heading">Kurs</string>
+    <string name="no_sensors">Inga matchande sensorer</string>
+    <string name="not_monitoring">Övervakar inte</string>
+    <string name="overview">Översikt</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Starta övervakning för att visa sensordata.</string>
+    <string name="stop_recording">Stoppa inspelning</string>
+    <string name="tilt_values">Pitch %1$.1f° · roll %2$.1f°</string>
 </resources>

@@ -6,21 +6,22 @@
 package dev.openlocation.probe
 
 import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.activity.*
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.*
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import java.util.Locale
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 class ProbeActivity : ComponentActivity() {
     private lateinit var monitor: ProbeMonitor
@@ -30,15 +31,21 @@ class ProbeActivity : ComponentActivity() {
         enableEdgeToEdge()
         monitor = ProbeMonitor(this)
         setContent {
-            val state by monitor.state.collectAsState()
-            val context = LocalContext.current
-            val color =
-                if (isSystemInDarkTheme()) dynamicDarkColorScheme(context)
-                else dynamicLightColorScheme(context)
-            val grant =
+            val state by monitor.state.collectAsStateWithLifecycle()
+            var error by remember { mutableStateOf<Int?>(null) }
+            var tab by remember { mutableIntStateOf(0) }
+            var query by remember { mutableStateOf("") }
+            val permission =
                 rememberLauncherForActivityResult(
                     ActivityResultContracts.RequestMultiplePermissions()
                 ) {
+                    if (
+                        checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) !=
+                            PackageManager.PERMISSION_GRANTED ||
+                            checkSelfPermission(Manifest.permission.ACTIVITY_RECOGNITION) !=
+                                PackageManager.PERMISSION_GRANTED
+                    )
+                        error = R.string.permission
                     monitor.start()
                 }
             val export =
@@ -47,180 +54,154 @@ class ProbeActivity : ComponentActivity() {
                 ) { uri ->
                     if (uri != null)
                         runCatching {
-                            contentResolver.openOutputStream(uri, "wt")!!.use { output ->
-                                monitor.recordingFile.inputStream().use { it.copyTo(output) }
+                                contentResolver.openOutputStream(uri, "wt")!!.use { output ->
+                                    monitor.recordingFile.inputStream().use { it.copyTo(output) }
+                                }
                             }
-                        }
+                            .onFailure { error = R.string.export_error }
                 }
-            MaterialExpressiveTheme(colorScheme = color) {
+            val colors =
+                if (isSystemInDarkTheme()) dynamicDarkColorScheme(this)
+                else dynamicLightColorScheme(this)
+            MaterialExpressiveTheme(
+                colorScheme = colors,
+                motionScheme = MotionScheme.expressive(),
+            ) {
                 Scaffold(
                     topBar = { TopAppBar(title = { Text(stringResource(R.string.app_name)) }) }
                 ) { padding ->
-                    LazyColumn(
-                        Modifier.padding(padding).padding(horizontal = 20.dp),
-                        verticalArrangement = Arrangement.spacedBy(12.dp),
-                        contentPadding = PaddingValues(bottom = 24.dp),
-                    ) {
-                        item {
-                            Surface(
-                                shape = RoundedCornerShape(24.dp),
-                                color = MaterialTheme.colorScheme.primaryContainer,
-                            ) {
-                                Column(
-                                    Modifier.padding(20.dp),
-                                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                                ) {
-                                    Text(
-                                        stringResource(R.string.source),
-                                        style = MaterialTheme.typography.labelLarge,
+                    Column(Modifier.fillMaxSize().padding(padding)) {
+                        PrimaryTabRow(selectedTabIndex = tab) {
+                            listOf(R.string.overview, R.string.heading, R.string.sensors)
+                                .forEachIndexed { index, title ->
+                                    Tab(
+                                        selected = tab == index,
+                                        onClick = { tab = index },
+                                        text = { Text(stringResource(title)) },
                                     )
-                                    Text(
-                                        stringResource(
-                                            if (state.synthetic) R.string.hooked else R.string.real
-                                        ),
-                                        style = MaterialTheme.typography.headlineSmall,
-                                    )
-                                    state.reference?.let {
-                                        Text(
-                                            stringResource(
-                                                R.string.revision,
-                                                it.revision,
-                                                it.sequence,
-                                            ),
-                                            style = MaterialTheme.typography.labelMedium,
-                                        )
-                                    }
                                 }
-                            }
                         }
-                        item {
-                            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        LazyColumn(
+                            Modifier.fillMaxSize().padding(horizontal = 20.dp),
+                            verticalArrangement = Arrangement.spacedBy(12.dp),
+                            contentPadding = PaddingValues(top = 20.dp, bottom = 24.dp),
+                        ) {
+                            item {
+                                ProbeSourceCard(state)
+                                Spacer(Modifier.height(16.dp))
                                 Button(
                                     onClick = {
                                         if (state.monitoring) monitor.stop()
-                                        else
-                                            grant.launch(
+                                        else {
+                                            error = null
+                                            permission.launch(
                                                 arrayOf(
                                                     Manifest.permission.ACCESS_FINE_LOCATION,
                                                     Manifest.permission.ACCESS_COARSE_LOCATION,
                                                     Manifest.permission.ACTIVITY_RECOGNITION,
                                                 )
                                             )
-                                    }
+                                        }
+                                    },
+                                    modifier = Modifier.fillMaxWidth().height(64.dp),
+                                    shapes =
+                                        ButtonDefaults.shapesFor(
+                                            ButtonDefaults.LargeContainerHeight
+                                        ),
                                 ) {
                                     Text(
                                         stringResource(
                                             if (state.monitoring) R.string.stop else R.string.start
-                                        )
-                                    )
-                                }
-                                FilledTonalButton(
-                                    onClick = monitor::record,
-                                    enabled = state.monitoring,
-                                ) {
-                                    Text(
-                                        stringResource(
-                                            if (state.recording) R.string.recording
-                                            else R.string.record
-                                        )
-                                    )
-                                }
-                                OutlinedButton(
-                                    onClick = { export.launch("OpenLocation-recording.ndjson") },
-                                    enabled = !state.recording && monitor.recordingFile.exists(),
-                                ) {
-                                    Text(stringResource(R.string.export))
-                                }
-                            }
-                        }
-                        if (state.limitReached)
-                            item {
-                                Text(
-                                    stringResource(R.string.record_limit),
-                                    color = MaterialTheme.colorScheme.error,
-                                )
-                            }
-                        item {
-                            Text(
-                                stringResource(R.string.gps),
-                                style = MaterialTheme.typography.titleMedium,
-                            )
-                            state.location?.let { location ->
-                                Text(
-                                    stringResource(
-                                        R.string.coordinates,
-                                        location.latitude,
-                                        location.longitude,
-                                        location.accuracy.toDouble(),
-                                    ),
-                                    style = MaterialTheme.typography.bodyMedium,
-                                )
-                                Text(
-                                    stringResource(
-                                        R.string.timestamp,
-                                        location.elapsedRealtimeNanos,
-                                    ),
-                                    style = MaterialTheme.typography.labelSmall,
-                                )
-                            }
-                                ?: Text(
-                                    stringResource(R.string.no_location),
-                                    style = MaterialTheme.typography.bodyMedium,
-                                )
-                        }
-                        item {
-                            Text(
-                                stringResource(R.string.sensors),
-                                style = MaterialTheme.typography.titleMedium,
-                            )
-                        }
-                        items(state.readings, key = { it.instanceKey }) { row ->
-                            Surface(
-                                shape = RoundedCornerShape(20.dp),
-                                color = MaterialTheme.colorScheme.surfaceContainerLow,
-                            ) {
-                                Column(
-                                    Modifier.padding(16.dp),
-                                    verticalArrangement = Arrangement.spacedBy(6.dp),
-                                ) {
-                                    Text(
-                                        row.sensor.name,
-                                        style = MaterialTheme.typography.titleSmall,
-                                    )
-                                    Text(
-                                        stringResource(
-                                            R.string.instance,
-                                            row.instanceKey,
-                                            row.sensor.type,
                                         ),
-                                        style = MaterialTheme.typography.labelSmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        style = MaterialTheme.typography.titleMedium,
                                     )
+                                }
+                                error?.let {
                                     Text(
-                                        if (row.samples > 0)
-                                            row.values.joinToString("  ") {
-                                                String.format(Locale.getDefault(), "%.3f", it)
+                                        stringResource(it),
+                                        Modifier.padding(top = 12.dp),
+                                        color = MaterialTheme.colorScheme.error,
+                                    )
+                                }
+                            }
+                            when (tab) {
+                                0 -> {
+                                    item { ProbeLocationCard(state) }
+                                    item {
+                                        ProbeCard {
+                                            Text(
+                                                stringResource(R.string.capture),
+                                                style = MaterialTheme.typography.titleMedium,
+                                            )
+                                            Row(
+                                                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                            ) {
+                                                FilledTonalButton(
+                                                    onClick = monitor::record,
+                                                    enabled = state.monitoring,
+                                                    modifier = Modifier.weight(1f),
+                                                ) {
+                                                    Text(
+                                                        stringResource(
+                                                            if (state.recording)
+                                                                R.string.stop_recording
+                                                            else R.string.record
+                                                        )
+                                                    )
+                                                }
+                                                OutlinedButton(
+                                                    onClick = {
+                                                        export.launch(
+                                                            "OpenLocation-recording.ndjson"
+                                                        )
+                                                    },
+                                                    enabled =
+                                                        !state.recording &&
+                                                            monitor.recordingFile.exists(),
+                                                    modifier = Modifier.weight(1f),
+                                                ) {
+                                                    Text(stringResource(R.string.export))
+                                                }
                                             }
-                                        else stringResource(R.string.waiting),
-                                        style = MaterialTheme.typography.bodyLarge,
-                                    )
-                                    Text(
-                                        stringResource(
-                                            R.string.rate,
-                                            row.hz,
-                                            row.samples,
-                                            row.gaps,
-                                        ),
-                                        style = MaterialTheme.typography.labelMedium,
-                                    )
-                                    Text(
-                                        stringResource(R.string.timestamp, row.timestamp),
-                                        style = MaterialTheme.typography.labelSmall,
-                                    )
-                                    Text(
-                                        stringResource(R.string.latency, row.delayMs),
-                                        style = MaterialTheme.typography.labelSmall,
-                                    )
+                                            if (state.limitReached)
+                                                Text(
+                                                    stringResource(R.string.record_limit),
+                                                    color = MaterialTheme.colorScheme.error,
+                                                )
+                                        }
+                                    }
+                                }
+                                1 -> item { ProbeHeadingCard(state) }
+                                else -> {
+                                    item {
+                                        OutlinedTextField(
+                                            query,
+                                            { query = it },
+                                            Modifier.fillMaxWidth(),
+                                            singleLine = true,
+                                            label = {
+                                                Text(stringResource(R.string.filter_sensors))
+                                            },
+                                            shape = MaterialTheme.shapes.extraLarge,
+                                        )
+                                    }
+                                    val rows =
+                                        state.readings.filter {
+                                            it.sensor.name.contains(query, true) ||
+                                                it.sensor.type.toString() == query.trim()
+                                        }
+                                    if (rows.isEmpty())
+                                        item {
+                                            Text(
+                                                stringResource(
+                                                    if (state.monitoring) R.string.no_sensors
+                                                    else R.string.start_to_inspect
+                                                ),
+                                                Modifier.padding(16.dp),
+                                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                            )
+                                        }
+                                    items(rows, key = { it.instanceKey }) { SensorReadingCard(it) }
                                 }
                             }
                         }

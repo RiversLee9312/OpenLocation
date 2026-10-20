@@ -23,4 +23,21 @@
     <string name="record_limit">Kayıt sınırına ulaşıldı</string>
     <string name="latency">Geri çağrı gecikmesi: %1$.1f ms</string>
     <string name="counter">Oturum adımları: %1$d</string>
+    <string name="active_channels">%1$d/%2$d kanal veri alıyor</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Kerteriz %1$.1f°</string>
+    <string name="capture">Yakalama</string>
+    <string name="collapse_details">Ayrıntıları gizle</string>
+    <string name="expand_details">Ayrıntıları göster</string>
+    <string name="expected_heading">Sahne yönü %1$.1f°</string>
+    <string name="filter_sensors">Sensörleri filtrele</string>
+    <string name="gnss_counts">Kullanılan uydu %1$d/%2$d · ham ölçüm %3$d</string>
+    <string name="heading">Yön</string>
+    <string name="no_sensors">Eşleşen sensör yok</string>
+    <string name="not_monitoring">İzlenmiyor</string>
+    <string name="overview">Genel bakış</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Sensör verilerini incelemek için izlemeyi başlatın.</string>
+    <string name="stop_recording">Kaydı durdur</string>
+    <string name="tilt_values">Eğim %1$.1f° · yatış %2$.1f°</string>
 </resources>

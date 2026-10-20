@@ -1,3 +1,20 @@
 <resources>
     <string name="source">数据来源</string><string name="hooked">LSPosed · 模拟</string><string name="real">设备 · 真实</string><string name="start">监测</string><string name="stop">停止</string><string name="record">录制</string><string name="recording">录制中</string><string name="export">导出录制</string><string name="gps">GPS</string><string name="no_location">无定位</string><string name="sensors">传感器</string><string name="instance">实例 %1$d · 类型 %2$d</string><string name="rate">%1$.1f Hz · %2$d 次采样 · %3$d 次间隔异常</string><string name="timestamp">单调时间戳：%1$d 纳秒</string><string name="revision">场景 %1$d · 序列 %2$d</string><string name="waiting">等待采样</string><string name="reference">场景参考</string><string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f 米</string><string name="permission">允许访问位置与身体活动后，可检查所有通道。</string><string name="grant">授予权限</string><string name="export_error">无法导出录制。</string><string name="record_limit">已达到录制上限</string><string name="latency">回调延迟：%1$.1f 毫秒</string><string name="counter">本次步数：%1$d</string>
+    <string name="active_channels">%1$d / %2$d 个通道正在接收数据</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">方位角 %1$.1f°</string>
+    <string name="capture">采集</string>
+    <string name="collapse_details">隐藏详情</string>
+    <string name="expand_details">显示详情</string>
+    <string name="expected_heading">场景朝向 %1$.1f°</string>
+    <string name="filter_sensors">筛选传感器</string>
+    <string name="gnss_counts">已使用卫星 %1$d / %2$d · 原始测量值 %3$d</string>
+    <string name="heading">朝向</string>
+    <string name="no_sensors">没有匹配的传感器</string>
+    <string name="not_monitoring">未在监测</string>
+    <string name="overview">概览</string>
+    <string name="speed_value">%1$.2f 米/秒</string>
+    <string name="start_to_inspect">开始监测以查看传感器数据。</string>
+    <string name="stop_recording">停止录制</string>
+    <string name="tilt_values">俯仰 %1$.1f° · 横滚 %2$.1f°</string>
 </resources>

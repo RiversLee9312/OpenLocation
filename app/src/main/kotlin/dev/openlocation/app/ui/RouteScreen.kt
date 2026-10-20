@@ -36,7 +36,7 @@ fun RouteScreen(
         remember(state.session.scene.routeDeviationMeters) {
             mutableDoubleStateOf(state.session.scene.routeDeviationMeters)
         }
-    var dialog by remember { mutableStateOf(false) }
+    var editor by remember { mutableStateOf(false) }
     val importer =
         rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) {
             it?.let(vm::import)
@@ -87,10 +87,17 @@ fun RouteScreen(
             state.nominalRoute.ifEmpty { points },
             null,
             Modifier.fillMaxWidth().height(360.dp).clip(RoundedCornerShape(28.dp)),
-            editable,
+            false,
             deviationMeters = deviation,
-        ) { point ->
-            vm.configure { it.copy(routeWgs84 = it.routeWgs84 + point) }
+        )
+        Button(
+            onClick = { editor = true },
+            enabled = editable,
+            modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp),
+        ) {
+            Symbol(R.drawable.ic_edit)
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.edit_route))
         }
         Row(
             Modifier.fillMaxWidth(),
@@ -108,20 +115,9 @@ fun RouteScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            Row {
-                IconButton(
-                    onClick = { vm.configure { it.copy(routeWgs84 = it.routeWgs84.dropLast(1)) } },
-                    enabled = editable && points.size > 2,
-                ) {
-                    Symbol(R.drawable.ic_undo, stringResource(R.string.undo))
-                }
-                FilledTonalIconButton(onClick = { dialog = true }, enabled = editable) {
-                    Symbol(R.drawable.ic_add, stringResource(R.string.add_point))
-                }
-            }
         }
         Text(
-            stringResource(if (editable) R.string.route_hint else R.string.edit_stopped),
+            stringResource(if (editable) R.string.select_point_hint else R.string.edit_stopped),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -212,46 +208,39 @@ fun RouteScreen(
         }
         Spacer(Modifier.height(8.dp))
     }
-    if (dialog)
-        CoordinateDialog(
-            onDismiss = { dialog = false },
-            onSave = { point ->
-                vm.configure { it.copy(routeWgs84 = it.routeWgs84 + point) }
-                dialog = false
-            },
-        )
+    if (editor) RouteEditor(points, vm) { editor = false }
 }
 
 @Composable
-private fun CoordinateDialog(onDismiss: () -> Unit, onSave: (GeoPoint) -> Unit) {
-    var latitude by remember { mutableStateOf("") }
-    var longitude by remember { mutableStateOf("") }
-    var altitude by remember { mutableStateOf("0") }
+fun CoordinateDialog(initial: GeoPoint? = null, onDismiss: () -> Unit, onSave: (GeoPoint) -> Unit) {
+    var latitude by remember { mutableStateOf(initial?.latitude?.toString().orEmpty()) }
+    var longitude by remember { mutableStateOf(initial?.longitude?.toString().orEmpty()) }
+    var altitude by remember { mutableStateOf(initial?.altitude?.toString() ?: "0") }
     var invalid by remember { mutableStateOf(false) }
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.add_point)) },
+        title = { Text(stringResource(R.string.edit_coordinates)) },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedTextField(
                     latitude,
                     { latitude = it },
                     label = { Text(stringResource(R.string.latitude)) },
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii),
                     singleLine = true,
                 )
                 OutlinedTextField(
                     longitude,
                     { longitude = it },
                     label = { Text(stringResource(R.string.longitude)) },
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii),
                     singleLine = true,
                 )
                 OutlinedTextField(
                     altitude,
                     { altitude = it },
                     label = { Text(stringResource(R.string.altitude)) },
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Ascii),
                     singleLine = true,
                 )
                 if (invalid)
@@ -265,7 +254,11 @@ private fun CoordinateDialog(onDismiss: () -> Unit, onSave: (GeoPoint) -> Unit) 
             TextButton(
                 onClick = {
                     runCatching {
-                            GeoPoint(latitude.toDouble(), longitude.toDouble(), altitude.toDouble())
+                            GeoPoint(
+                                dev.openlocation.runtime.CoordinateNumbers.parse(latitude),
+                                dev.openlocation.runtime.CoordinateNumbers.parse(longitude),
+                                dev.openlocation.runtime.CoordinateNumbers.parse(altitude),
+                            )
                         }
                         .onSuccess(onSave)
                         .onFailure { invalid = true }

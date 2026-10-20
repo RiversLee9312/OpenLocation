@@ -23,4 +23,21 @@
     <string name="record_limit">Aufzeichnungslimit erreicht</string>
     <string name="latency">Callback-Verzögerung: %1$.1f ms</string>
     <string name="counter">Schritte in der Sitzung: %1$d</string>
+    <string name="active_channels">%1$d von %2$d Kanälen empfangen Daten</string>
+    <string name="angle_value">%1$.1f°</string>
+    <string name="bearing_value">Peilung %1$.1f°</string>
+    <string name="capture">Erfassen</string>
+    <string name="collapse_details">Details ausblenden</string>
+    <string name="expand_details">Details anzeigen</string>
+    <string name="expected_heading">Szenenkurs %1$.1f°</string>
+    <string name="filter_sensors">Sensoren filtern</string>
+    <string name="gnss_counts">%1$d/%2$d Satelliten verwendet · %3$d Rohmessungen</string>
+    <string name="heading">Kurs</string>
+    <string name="no_sensors">Keine passenden Sensoren</string>
+    <string name="not_monitoring">Keine Überwachung</string>
+    <string name="overview">Übersicht</string>
+    <string name="speed_value">%1$.2f m/s</string>
+    <string name="start_to_inspect">Starten Sie die Überwachung, um Sensordaten anzuzeigen.</string>
+    <string name="stop_recording">Aufzeichnung beenden</string>
+    <string name="tilt_values">Neigung %1$.1f° · Rolle %2$.1f°</string>
 </resources>
