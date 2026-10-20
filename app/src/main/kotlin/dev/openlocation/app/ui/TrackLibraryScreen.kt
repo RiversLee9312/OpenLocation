@@ -66,27 +66,13 @@ fun TrackLibraryScreen(
             )
         )
     }
-    if (tracks.isEmpty())
-        Column(
-            Modifier.fillMaxSize().padding(32.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Symbol(R.drawable.ic_route, modifier = Modifier.size(64.dp))
-            Spacer(Modifier.height(24.dp))
-            Text(stringResource(R.string.no_tracks), style = MaterialTheme.typography.headlineSmall)
-            Spacer(Modifier.height(24.dp))
-            FilledTonalButton(onClick = { import() }) {
-                Symbol(R.drawable.ic_download)
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.import_gpx))
-            }
-        }
-    else
-        Column(
-            Modifier.fillMaxSize().padding(horizontal = 20.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-        ) {
+    LazyColumn(
+        Modifier.fillMaxSize().padding(horizontal = 20.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(bottom = 24.dp),
+    ) {
+        item { CurrentRouteActions(sceneRunning, sceneVm) }
+        item {
             Row(
                 Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -104,52 +90,61 @@ fun TrackLibraryScreen(
                     Symbol(R.drawable.ic_download, stringResource(R.string.import_gpx))
                 }
             }
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(6.dp),
-                contentPadding = PaddingValues(bottom = 24.dp),
-            ) {
-                items(tracks.filter { it.displayName().contains(query, true) }, key = { it.id }) {
-                    track ->
-                    Surface(
-                        onClick = { selected = track.id },
-                        shape = MaterialTheme.shapes.extraLarge,
-                        color = MaterialTheme.colorScheme.surfaceContainerLow,
-                    ) {
-                        ListItem(
-                            headlineContent = {
-                                Text(
-                                    track.displayName(),
-                                    maxLines = 2,
-                                    overflow = TextOverflow.Ellipsis,
-                                )
-                            },
-                            supportingContent = {
-                                Column {
-                                    Text(
-                                        stringResource(
-                                            if (track.active) R.string.recording_track
-                                            else track.sourceLabel()
-                                        )
-                                    )
-                                    Text(trackSummary(track))
-                                }
-                            },
-                            leadingContent = {
-                                Symbol(
-                                    if (track.kind == "recording") R.drawable.ic_fiber_manual_record
-                                    else R.drawable.ic_route
-                                )
-                            },
-                            trailingContent = { Symbol(R.drawable.ic_chevron_right) },
-                            colors =
-                                ListItemDefaults.colors(
-                                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow
-                                ),
-                        )
-                    }
+        }
+        if (tracks.isEmpty())
+            item {
+                Column(
+                    Modifier.fillMaxWidth().padding(vertical = 32.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
+                ) {
+                    Symbol(R.drawable.ic_route, modifier = Modifier.size(48.dp))
+                    Text(
+                        stringResource(R.string.no_tracks),
+                        style = MaterialTheme.typography.titleLarge,
+                    )
                 }
             }
+        items(tracks.filter { it.displayName().contains(query, true) }, key = { it.id }) { track ->
+            Surface(
+                onClick = { selected = track.id },
+                shape = MaterialTheme.shapes.extraLarge,
+                color = MaterialTheme.colorScheme.surfaceContainerLow,
+            ) {
+                ListItem(
+                    headlineContent = {
+                        Text(
+                            track.displayName(),
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    },
+                    supportingContent = {
+                        Column {
+                            Text(
+                                stringResource(
+                                    if (track.active) R.string.recording_track
+                                    else track.sourceLabel()
+                                )
+                            )
+                            Text(trackSummary(track))
+                        }
+                    },
+                    leadingContent = {
+                        Symbol(
+                            if (track.kind == "recording") R.drawable.ic_fiber_manual_record
+                            else R.drawable.ic_route
+                        )
+                    },
+                    trailingContent = { Symbol(R.drawable.ic_chevron_right) },
+                    colors =
+                        ListItemDefaults.colors(
+                            containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+                        ),
+                )
+            }
         }
+    }
     tracks
         .firstOrNull { it.id == selected }
         ?.let { track ->
@@ -292,5 +287,44 @@ fun TrackLibraryScreen(
                 TextButton(onClick = { deleting = null }) { Text(stringResource(R.string.cancel)) }
             },
         )
+    }
+}
+
+@Composable
+private fun CurrentRouteActions(sceneRunning: Boolean, sceneVm: SceneViewModel) {
+    val exporter =
+        rememberLauncherForActivityResult(
+            ActivityResultContracts.CreateDocument("application/gpx+xml")
+        ) { uri ->
+            uri?.let(sceneVm::export)
+        }
+    Surface(
+        shape = MaterialTheme.shapes.extraLarge,
+        color = MaterialTheme.colorScheme.surfaceContainer,
+    ) {
+        Column(
+            Modifier.fillMaxWidth().padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Text(
+                stringResource(R.string.current_route),
+                style = MaterialTheme.typography.titleMedium,
+            )
+            FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                FilledTonalButton(onClick = sceneVm::saveRoute, enabled = !sceneRunning) {
+                    Symbol(R.drawable.ic_add)
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(R.string.save_to_library))
+                }
+                OutlinedButton(onClick = { exporter.launch("OpenLocation.gpx") }) {
+                    Symbol(R.drawable.ic_upload)
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(R.string.export_gpx))
+                }
+            }
+        }
     }
 }

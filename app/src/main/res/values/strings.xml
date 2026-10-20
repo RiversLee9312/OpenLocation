@@ -159,6 +159,7 @@
     <string name="no_tracks">No tracks yet</string>
     <string name="use_track">Use as simulation route</string>
     <string name="save_to_library">Save to library</string>
+    <string name="current_route">Current route</string>
     <string name="rename_track">Rename</string>
     <string name="track_name">Track name</string>
     <string name="invalid_track_name">Enter a name of 1–120 characters.</string>

@@ -192,4 +192,5 @@
     <string name="amap_location">Vị trí AMap</string>
     <string name="baidu_location">Vị trí Baidu</string>
     <string name="verification_scope">Việc xác minh áp dụng cho các phiên bản và kênh được liệt kê trong hồ sơ thiết bị.</string>
+    <string name="current_route">Tuyến đường hiện tại</string>
 </resources>

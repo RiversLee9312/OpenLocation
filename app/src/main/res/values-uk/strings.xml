@@ -195,4 +195,5 @@
     <string name="amap_location">Місцезнаходження AMap</string>
     <string name="baidu_location">Місцезнаходження Baidu</string>
     <string name="verification_scope">Перевірка поширюється на версії та канали, зазначені в профілі пристрою.</string>
+    <string name="current_route">Поточний маршрут</string>
 </resources>

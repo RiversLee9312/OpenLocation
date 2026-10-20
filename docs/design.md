@@ -8,6 +8,8 @@ Copy describes actions and state: Start, Pause, Resume, Stop, Route, Diagnostics
 
 The route editor reserves most of the screen for the map. A fixed center pin and a live coordinate readout make placement explicit; selecting a vertex opens Move and Delete actions. Search results jump the camera without mutating the draft. The bottom sheet lists ordered points, while undo/redo and Save operate on an isolated draft. Existing routes use the same editor. An explicit Save validates and commits the draft; discarding it preserves the stored route.
 
+The Routes page contains recording/library entry points, the route preview and Edit route. Point lists, duplicate edit instructions and the old reset controls are removed from its footer. Path deviation limit and wavelength live in Scene → Configuration, sharing that configuration draft and Save action. GPX import and current-route save/export are grouped in the track library.
+
 The probe separates Overview, Heading and Sensors. Overview shows source state and capture controls; Heading compares actual Android sensor events with the scene reference and identifies each sensor by its numeric type and instance. Sensor cards expose rates and timing first, with hardware metadata on expansion. Both apps use the same expressive theme and dynamic color roles. Directional edit icons mirror in RTL.
 
 ## Primary sources

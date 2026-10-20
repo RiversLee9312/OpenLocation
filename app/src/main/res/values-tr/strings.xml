@@ -193,4 +193,5 @@
     <string name="amap_location">AMap konumu</string>
     <string name="baidu_location">Baidu konumu</string>
     <string name="verification_scope">Doğrulama, cihaz profilinde listelenen sürümler ve kanallar için geçerlidir.</string>
+    <string name="current_route">Geçerli rota</string>
 </resources>

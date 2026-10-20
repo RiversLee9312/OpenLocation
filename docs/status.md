@@ -10,6 +10,7 @@ Reference: OnePlus 11, PHB110 / OP591BL1 / API 36, updated 2026-10-20. The compl
 - Per-mode speed/stride/arm swing/heading variation, route corridor, GPX editing and physical GPS recording/export/recovery.
 - Unified imported/recorded/saved GPX library: search, preview, rename, lossless original export, delete and reuse as a simulation route.
 - Transactional route editing with device-geocoder search, center-pin placement, existing-point movement, arbitrary-point deletion, coordinate entry and bounded undo/redo.
+- A compact Routes overview; path-deviation settings are in Scene configuration, and GPX file actions are in the track library.
 - Probe overview, independent heading comparison and searchable sensor-instance cards.
 - Material 3 Expressive, dynamic color, adaptive/themed icon, first-use notice, open source licenses and 22 resource locales.
 - Agent adaptation skill, rollback instructions, private release signing and no cloud/device-transfer backup of recordings.
@@ -22,7 +23,7 @@ Version 0.1.1 adds independent checks for seven heading variants (including nume
 
 GNSS-backed consumers Tencent Maps 11.7.0, AMap 17.01.0.2015 and Baidu Maps 22.0.40 received route data on this firmware. System subscriptions/callbacks and map movement were observed; driving displays also showed changing speed and distance. See `verification/sdk-consumers-0.1.1.md` for exact scope. Independent network-only SDK paths remain unverified.
 
-The 0.1.1 editor was exercised with place search, camera-center movement of an existing point, insertion after a selected point, middle-point deletion, undo/redo, Save/reopen and discard. The saved point coordinates and counts persisted; discarding an empty new draft preserved the saved route. Probe overview received 49 satellite-status entries and 49 raw measurements; its heading selector distinguishes numeric type 3 from type 11 despite identical vendor names. Chinese, Arabic RTL and 1.3× font layouts were inspected, with font/locale/night settings restored afterward.
+The 0.1.1 editor was exercised with place search, camera-center movement of an existing point, insertion after a selected point, middle-point deletion, undo/redo, Save/reopen and discard. The saved point coordinates and counts persisted; discarding an empty new draft preserved the saved route. The simplified Routes page has no duplicate footer, and Scene configuration retains the existing deviation-limit/wavelength values (1.50 m / 60.00 m in the acceptance scene). Probe overview received 49 satellite-status entries and 49 raw measurements; its heading selector distinguishes numeric type 3 from type 11 despite identical vendor names. Chinese, Arabic RTL and 1.3× font layouts were inspected, with font/locale/night settings restored afterward.
 
 `verification/system-service-channels.txt` records independent consumer instrumentation. `verification/uid-isolation.txt` records physical IMU/GPS retained by an unselected UID while another UID receives synthetic motion. Historical application-process prototype results have been removed from release evidence.
 

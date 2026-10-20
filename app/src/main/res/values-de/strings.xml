@@ -193,4 +193,5 @@
     <string name="amap_location">AMap-Standort</string>
     <string name="baidu_location">Baidu-Standort</string>
     <string name="verification_scope">Die Verifizierung gilt für die im Geräteprofil aufgeführten Versionen und Kanäle.</string>
+    <string name="current_route">Aktuelle Route</string>
 </resources>

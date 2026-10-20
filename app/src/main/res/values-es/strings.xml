@@ -194,4 +194,5 @@
     <string name="amap_location">Ubicación de AMap</string>
     <string name="baidu_location">Ubicación de Baidu</string>
     <string name="verification_scope">La verificación se aplica a las versiones y canales indicados en el perfil del dispositivo.</string>
+    <string name="current_route">Ruta actual</string>
 </resources>

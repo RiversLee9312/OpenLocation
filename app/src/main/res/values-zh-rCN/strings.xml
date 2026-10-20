@@ -192,4 +192,5 @@
     <string name="amap_location">高德定位</string>
     <string name="baidu_location">百度定位</string>
     <string name="verification_scope">验证范围仅限设备配置中列出的版本和渠道。</string>
+    <string name="current_route">当前路线</string>
 </resources>

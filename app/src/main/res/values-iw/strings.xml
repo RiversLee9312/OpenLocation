@@ -194,4 +194,5 @@
     <string name="amap_location">מיקום AMap</string>
     <string name="baidu_location">מיקום Baidu</string>
     <string name="verification_scope">האימות חל על הגרסאות והערוצים שמופיעים בפרופיל המכשיר.</string>
+    <string name="current_route">המסלול הנוכחי</string>
 </resources>

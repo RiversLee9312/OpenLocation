@@ -192,4 +192,5 @@
     <string name="amap_location">AMap 위치</string>
     <string name="baidu_location">Baidu 위치</string>
     <string name="verification_scope">검증은 기기 프로필에 나열된 버전 및 채널에 적용됩니다.</string>
+    <string name="current_route">현재 경로</string>
 </resources>

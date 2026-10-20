@@ -193,4 +193,5 @@
     <string name="amap_location">موقعیت AMap</string>
     <string name="baidu_location">موقعیت Baidu</string>
     <string name="verification_scope">تأیید برای نسخه‌ها و کانال‌های فهرست‌شده در نمایه دستگاه اعمال می‌شود.</string>
+    <string name="current_route">مسیر فعلی</string>
 </resources>

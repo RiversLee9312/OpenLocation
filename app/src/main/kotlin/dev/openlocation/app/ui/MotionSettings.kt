@@ -120,6 +120,25 @@ fun MotionSettings(scene: SceneConfig, onDismiss: () -> Unit, onSave: (SceneConf
                 draft = draft.copy(headingVariationRadians = Math.toRadians(it))
             }
             HorizontalDivider()
+            SectionTitle(R.string.routes)
+            ParameterSlider(
+                R.string.route_variation,
+                draft.routeDeviationMeters,
+                0.0..30.0,
+                stringResource(R.string.meters_value, draft.routeDeviationMeters),
+            ) {
+                draft = draft.copy(routeDeviationMeters = it)
+            }
+            if (draft.routeDeviationMeters > 0)
+                ParameterSlider(
+                    R.string.route_variation_period,
+                    draft.routeDeviationWavelengthMeters,
+                    10.0..200.0,
+                    stringResource(R.string.meters_value, draft.routeDeviationWavelengthMeters),
+                ) {
+                    draft = draft.copy(routeDeviationWavelengthMeters = it)
+                }
+            HorizontalDivider()
             SectionTitle(R.string.placement)
             FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 PhonePlacement.entries.forEach { placement ->

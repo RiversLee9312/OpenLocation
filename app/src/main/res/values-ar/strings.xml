@@ -197,4 +197,5 @@
     <string name="amap_location">موقع AMap</string>
     <string name="baidu_location">موقع Baidu</string>
     <string name="verification_scope">ينطبق التحقق على الإصدارات والقنوات المدرجة في ملف تعريف الجهاز.</string>
+    <string name="current_route">المسار الحالي</string>
 </resources>
