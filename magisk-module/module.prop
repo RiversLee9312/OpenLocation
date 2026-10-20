@@ -1,6 +1,6 @@
 id=openlocation
 name=OpenLocation
-version=0.1.2
-versionCode=3
+version=0.1.3
+versionCode=4
 author=OpenLocation
 description=Device-matched native SensorService backend for OpenLocation; requires LSPosed System Framework scope

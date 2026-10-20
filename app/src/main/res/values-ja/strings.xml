@@ -201,4 +201,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">カーブで自動減速</string>
     <string name="corner_slowdown_hint">カーブや経路の変化により、設定速度を下回る場合があります。</string>
+    <string name="speed_input_range">0～%1$s %2$s の範囲で入力してください。</string>
 </resources>

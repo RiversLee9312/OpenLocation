@@ -204,4 +204,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">Снижать скорость на поворотах</string>
     <string name="corner_slowdown_hint">Повороты и изменения траектории могут снизить заданную скорость.</string>
+    <string name="speed_input_range">Введите значение от 0 до %1$s %2$s.</string>
 </resources>

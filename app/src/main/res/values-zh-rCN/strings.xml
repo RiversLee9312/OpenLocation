@@ -201,4 +201,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">弯道自动减速</string>
     <string name="corner_slowdown_hint">速度可能因弯道和轨迹波动而低于设定值。</string>
+    <string name="speed_input_range">请输入 0–%1$s %2$s 之间的数值。</string>
 </resources>

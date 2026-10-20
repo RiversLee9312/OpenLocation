@@ -206,4 +206,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">خفّض السرعة عند المنعطفات</string>
     <string name="corner_slowdown_hint">قد تؤدي المنعطفات وتغيّرات المسار إلى خفض السرعة المحددة.</string>
+    <string name="speed_input_range">أدخل قيمة بين 0 و%1$s %2$s.</string>
 </resources>

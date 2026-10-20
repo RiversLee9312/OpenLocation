@@ -39,6 +39,21 @@ class SpeedPolicyTest {
     }
 
     @Test
+    fun highwayTargetAboveTheFormerSliderCeilingReachesTheLocationOutput() {
+        val scene =
+            drivingScene()
+                .copy(
+                    routeWgs84 = listOf(GeoPoint(0.0, 0.0), GeoPoint(0.0, 0.05)),
+                    routeDeviationMeters = 0.0,
+                    speedMetersPerSecond = SceneConfig.MAX_SPEED_METERS_PER_SECOND,
+                    curveSpeedLimitEnabled = false,
+                )
+        val cruise = SceneEngine(scene).sample(40_000_000_000L)
+        assertEquals(70.0, cruise.velocity.norm(), 1e-8)
+        assertEquals(70.0, cruise.observedLocation!!.speed, 1e-8)
+    }
+
+    @Test
     fun legacyScenesKeepCurveLimitingAndTheChoiceSurvivesSerialization() {
         val scene = drivingScene()
         val legacy =

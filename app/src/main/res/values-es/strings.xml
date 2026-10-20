@@ -203,4 +203,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">Reducir velocidad en curvas</string>
     <string name="corner_slowdown_hint">Las curvas y las variaciones de la ruta pueden reducir la velocidad configurada.</string>
+    <string name="speed_input_range">Introduce un valor entre 0 y %1$s %2$s.</string>
 </resources>

@@ -201,4 +201,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">Giảm tốc khi vào cua</string>
     <string name="corner_slowdown_hint">Đường cong và biến động của lộ trình có thể làm giảm tốc độ đã đặt.</string>
+    <string name="speed_input_range">Nhập giá trị từ 0 đến %1$s %2$s.</string>
 </resources>

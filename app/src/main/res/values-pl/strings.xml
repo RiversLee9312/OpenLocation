@@ -204,4 +204,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">Zwalniaj na zakrętach</string>
     <string name="corner_slowdown_hint">Zakręty i zmiany trasy mogą obniżyć ustawioną prędkość.</string>
+    <string name="speed_input_range">Wpisz wartość od 0 do %1$s %2$s.</string>
 </resources>

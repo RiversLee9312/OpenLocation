@@ -201,4 +201,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">곡선 구간 자동 감속</string>
     <string name="corner_slowdown_hint">곡선 구간과 경로 변화로 설정 속도보다 느려질 수 있습니다.</string>
+    <string name="speed_input_range">0–%1$s %2$s 사이의 값을 입력하세요.</string>
 </resources>

@@ -21,6 +21,7 @@
     <string name="speed">Speed</string>
     <string name="speed_value">%1$.1f m/s</string>
     <string name="target_speed">Target speed</string>
+    <string name="speed_input_range">Enter a value from 0 to %1$s %2$s.</string>
     <string name="speed_units">Speed units</string>
     <string name="unit_mps">m/s</string>
     <string name="unit_kmh">km/h</string>

@@ -201,4 +201,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">Kurangi kecepatan di tikungan</string>
     <string name="corner_slowdown_hint">Tikungan dan variasi rute dapat mengurangi kecepatan yang ditetapkan.</string>
+    <string name="speed_input_range">Masukkan nilai antara 0 dan %1$s %2$s.</string>
 </resources>

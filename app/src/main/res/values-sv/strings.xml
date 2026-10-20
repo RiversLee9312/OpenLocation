@@ -202,4 +202,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">Sänk farten i kurvor</string>
     <string name="corner_slowdown_hint">Kurvor och variationer i rutten kan sänka den inställda hastigheten.</string>
+    <string name="speed_input_range">Ange ett värde mellan 0 och %1$s %2$s.</string>
 </resources>

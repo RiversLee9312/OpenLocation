@@ -5,14 +5,22 @@ package dev.openlocation.app.ui
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.*
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import dev.openlocation.app.R
+import dev.openlocation.runtime.SpeedInput
 import dev.openlocation.runtime.SpeedUnit
 import dev.openlocation.scenario.*
 
@@ -25,6 +33,20 @@ fun MotionSettings(
     onSave: (SceneConfig) -> Unit,
 ) {
     var draft by remember(scene.locomotion) { mutableStateOf(scene) }
+    val locale = LocalConfiguration.current.locales[0]
+    val initialSpeedInput =
+        remember(scene.locomotion, speedUnit, locale) {
+            SpeedInput.format(speedUnit.fromMetersPerSecond(scene.speedMetersPerSecond), locale)
+        }
+    var speedInput by
+        rememberSaveable(scene.locomotion, speedUnit, locale.toLanguageTag()) {
+            mutableStateOf(initialSpeedInput)
+        }
+    // Keeping an untouched field preserves the exact SI value, including imported precision.
+    val targetSpeed =
+        if (speedInput == initialSpeedInput) scene.speedMetersPerSecond
+        else SpeedInput.metersPerSecond(speedInput, speedUnit, locale)
+    val focusManager = LocalFocusManager.current
     val gait = draft.locomotion == Locomotion.WALK || draft.locomotion == Locomotion.RUN
     ModalBottomSheet(
         onDismissRequest = onDismiss,
@@ -41,20 +63,41 @@ fun MotionSettings(
                 stringResource(draft.locomotion.label()),
                 style = MaterialTheme.typography.headlineMedium,
             )
-            ParameterSlider(
-                R.string.target_speed,
-                speedUnit.fromMetersPerSecond(draft.speedMetersPerSecond),
-                0.0..speedUnit.fromMetersPerSecond(
-                        when (draft.locomotion) {
-                            Locomotion.CAR -> 35.0
-                            Locomotion.BICYCLE -> 12.0
-                            else -> 5.0
+            OutlinedTextField(
+                value = speedInput,
+                onValueChange = { speedInput = it },
+                label = { Text(stringResource(R.string.target_speed)) },
+                suffix = { Text(stringResource(speedUnit.label())) },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                isError = targetSpeed == null,
+                supportingText =
+                    if (targetSpeed == null) {
+                        {
+                            Text(
+                                stringResource(
+                                    R.string.speed_input_range,
+                                    SpeedInput.format(
+                                        speedUnit.fromMetersPerSecond(
+                                            SceneConfig.MAX_SPEED_METERS_PER_SECOND
+                                        ),
+                                        locale,
+                                    ),
+                                    stringResource(speedUnit.label()),
+                                )
+                            )
                         }
+                    } else null,
+                keyboardOptions =
+                    KeyboardOptions(
+                        keyboardType = KeyboardType.Decimal,
+                        imeAction = ImeAction.Done,
                     ),
-                speedText(draft.speedMetersPerSecond, speedUnit),
-            ) {
-                draft = draft.copy(speedMetersPerSecond = speedUnit.toMetersPerSecond(it))
-            }
+                keyboardActions =
+                    KeyboardActions(
+                        onDone = { if (targetSpeed != null) focusManager.clearFocus() }
+                    ),
+            )
             ParameterSlider(
                 R.string.speed_variation,
                 speedUnit.fromMetersPerSecond(draft.speedVariationMetersPerSecond),
@@ -228,7 +271,13 @@ fun MotionSettings(
             ) {
                 draft = draft.copy(gnss = draft.gnss.copy(elevationMaskDegrees = it))
             }
-            Button(onClick = { onSave(draft) }, modifier = Modifier.fillMaxWidth().height(56.dp)) {
+            Button(
+                onClick = {
+                    targetSpeed?.let { onSave(draft.copy(speedMetersPerSecond = it)) }
+                },
+                enabled = targetSpeed != null,
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+            ) {
                 Text(stringResource(R.string.save))
             }
             Spacer(Modifier.navigationBarsPadding().height(16.dp))

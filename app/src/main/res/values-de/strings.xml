@@ -202,4 +202,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">In Kurven langsamer</string>
     <string name="corner_slowdown_hint">Kurven und Wegabweichungen können die Geschwindigkeit unter den eingestellten Wert senken.</string>
+    <string name="speed_input_range">Gib einen Wert zwischen 0 und %1$s %2$s ein.</string>
 </resources>

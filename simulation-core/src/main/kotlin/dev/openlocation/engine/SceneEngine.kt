@@ -103,7 +103,7 @@ class SceneEngine(val config: SceneConfig) {
         if (baseline <= 0) return 0.0
         return (baseline + config.speedVariationMetersPerSecond * variation(t, 11)).coerceIn(
             0.0,
-            70.0,
+            SceneConfig.MAX_SPEED_METERS_PER_SECOND,
         )
     }
 

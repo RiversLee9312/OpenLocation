@@ -122,7 +122,10 @@ data class SceneConfig(
                 routeDeviationWavelengthMeters in 10.0..500.0
         )
         require(revision >= 1 && initialStepCounter >= 0)
-        require(speedMetersPerSecond.isFinite() && speedMetersPerSecond in 0.0..70.0)
+        require(
+            speedMetersPerSecond.isFinite() &&
+                speedMetersPerSecond in 0.0..MAX_SPEED_METERS_PER_SECOND
+        )
         require(
             speedVariationMetersPerSecond.isFinite() && speedVariationMetersPerSecond in 0.0..20.0
         )
@@ -140,7 +143,7 @@ data class SceneConfig(
                 it.seconds.isFinite() &&
                     it.seconds >= 0 &&
                     it.metersPerSecond.isFinite() &&
-                    it.metersPerSecond in 0.0..70.0
+                    it.metersPerSecond in 0.0..MAX_SPEED_METERS_PER_SECOND
             }
         )
         require(
@@ -157,6 +160,11 @@ data class SceneConfig(
                 .zipWithNext()
                 .all { (a, b) -> a.endSeconds <= b.startSeconds }
         )
+    }
+
+    companion object {
+        /** Shared scene-format and engine bound; independent of movement mode or display unit. */
+        const val MAX_SPEED_METERS_PER_SECOND = 70.0
     }
 
     fun profile() =

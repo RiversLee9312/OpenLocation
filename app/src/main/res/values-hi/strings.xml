@@ -202,4 +202,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">मोड़ों पर गति कम करें</string>
     <string name="corner_slowdown_hint">मोड़ और मार्ग में बदलाव निर्धारित गति को कम कर सकते हैं।</string>
+    <string name="speed_input_range">0 से %1$s %2$s के बीच मान दर्ज करें।</string>
 </resources>

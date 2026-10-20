@@ -202,4 +202,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">کاهش سرعت در پیچ‌ها</string>
     <string name="corner_slowdown_hint">پیچ‌ها و تغییرات مسیر ممکن است سرعت تنظیم‌شده را کاهش دهند.</string>
+    <string name="speed_input_range">مقداری بین ۰ تا %1$s %2$s وارد کنید.</string>
 </resources>

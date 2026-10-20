@@ -12,13 +12,15 @@ Reference: OnePlus 11, PHB110 / OP591BL1 / API 36, updated 2026-10-20. The compl
 - Transactional route editing with device-geocoder search, center-pin placement, existing-point movement, arbitrary-point deletion, coordinate entry and bounded undo/redo.
 - A compact Routes overview; path-deviation settings are in Scene configuration, and GPX file actions are in the track library.
 - Probe overview, independent heading comparison and searchable sensor-instance cards.
-- Default-enabled curve slowdown with an explicit target-speed explanation, plus persistent m/s, km/h and mph display/input units.
+- Default-enabled curve slowdown with an explicit target-speed explanation, plus persistent m/s, km/h and mph display/input units and a decimal target-speed field using the full 0–70 m/s scene range.
 - Material 3 Expressive, dynamic color, adaptive/themed icon, first-use notice, open source licenses and 22 resource locales.
 - Agent adaptation skill, rollback instructions, private release signing and no cloud/device-transfer backup of recordings.
 
 ## Evidence
 
-JVM: 24 tests pass (15 dynamics/GNSS/speed-policy, 7 profile/recorded-GPX/recipient-policy/route-editing/coordinate-input/speed-units, 2 ELF parsing). Release lint has zero errors. Both APKs pass ELF/ZIP 16 KiB alignment checks; the physical phone uses 4 KiB pages.
+JVM: 27 tests pass (16 dynamics/GNSS/speed-policy, 9 profile/recorded-GPX/recipient-policy/route-editing/coordinate-input/speed-units/speed-input, 2 ELF parsing). Release lint has zero errors. Both APKs pass ELF/ZIP 16 KiB alignment checks; the physical phone uses 4 KiB pages.
+
+Version 0.1.3 reran 16 core and 9 Android-boundary JVM tests and both Release lint checks. On the reference phone, the decimal target-speed field accepted 220.5 km/h, persisted it on Save/reopen, and showed the localized range error for 300 km/h. Dismissing the invalid draft retained the saved target. Original route, all motion settings and UI preferences were restored after acceptance. The unchanged 0–70 m/s engine range is shared with input validation; a procedural highway test confirms 70 m/s reaches location output after acceleration. Existing system-channel/SDK evidence was not unnecessarily repeated. See `verification/speed-input-0.1.3.md`.
 
 Version 0.1.2 reran 15 core and 7 Android-boundary JVM tests. After installing both APKs/companion and restarting, an independent Android LocationManager consumer received 35.00 m/s with curve limiting disabled. Unit switching showed 126.0 km/h and 78.3 mph for the same SI target. Original route/motion settings, default-enabled curve limiting and the previous m/s preference were restored after checking. See `verification/speed-policy-0.1.2.md`. The previous SDK/sensor transport evidence retains its original versioned scope.
 

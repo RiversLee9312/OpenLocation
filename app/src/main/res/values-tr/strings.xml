@@ -202,4 +202,5 @@
     <string name="speed_quantity">%1$.1f %2$s</string>
     <string name="corner_slowdown">Virajlarda yavaşla</string>
     <string name="corner_slowdown_hint">Virajlar ve rota değişiklikleri ayarlanan hızı düşürebilir.</string>
+    <string name="speed_input_range">0 ile %1$s %2$s arasında bir değer girin.</string>
 </resources>
