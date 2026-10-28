@@ -59,4 +59,4 @@ The reference firmware has passed a real GMS Fused Location Provider client test
 
 ## Release and license
 
-Apache-2.0; notices are in [NOTICE](NOTICE), `third-party/` and Settings → Open source licenses. Run `python tools/create-release-key.py` once and securely back up `.secrets/`. Sign controller and probe with that same private identity; never commit credentials. Build `:app:assembleRelease :probe-app:assembleRelease`, then run `python tools/package-native.py <controller.apk> <output.zip>` and `python tools/verify-apk.py <apk>` for both APKs.
+Apache-2.0; notices are in [NOTICE](NOTICE), `third-party/` and Settings → Open source licenses. Run `python tools/create-release-key.py` once and securely back up `.secrets/`. Sign controller and probe with that same private identity; never commit credentials. Build `:app:assembleRelease :probe-app:assembleRelease`, then run `python tools/package-native.py <controller.apk> <output.zip> --profile <exact-profile-id>` and `python tools/verify-apk.py <apk>` for both APKs. Version 0.1.4 publishes the API 37 reference-firmware companion; older profile evidence keeps its documented historical scope.
