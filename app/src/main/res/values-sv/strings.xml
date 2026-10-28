@@ -67,7 +67,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">Öppna probe</string>
     <string name="probe_missing">Installera OpenLocation Probe för att granska callbackar.</string>
-    <string name="module_setup">Välj endast System Framework i LSPosed och starta sedan om enheten.</string>
+    <string name="module_setup">Välj endast System Framework i LSPosed / Vector och starta sedan om enheten.</string>
     <string name="capabilities">Kanaler</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">Java-sensorer</string>

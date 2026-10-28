@@ -1,6 +1,6 @@
 <resources>
     <string name="source">Origine</string>
-    <string name="hooked">LSPosed · sintetico</string>
+    <string name="hooked">LSPosed / Vector · sintetico</string>
     <string name="real">Dispositivo · reale</string>
     <string name="start">Monitora</string>
     <string name="stop">Ferma</string>

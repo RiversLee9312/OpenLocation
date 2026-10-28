@@ -1,6 +1,6 @@
 <resources>
     <string name="source">Source</string>
-    <string name="hooked">LSPosed · synthétique</string>
+    <string name="hooked">LSPosed / Vector · synthétique</string>
     <string name="real">Appareil · réel</string>
     <string name="start">Surveiller</string>
     <string name="stop">Arrêter</string>

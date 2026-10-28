@@ -68,7 +68,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">פתיחת probe</string>
     <string name="probe_missing">יש להתקין את OpenLocation Probe כדי לבדוק callbacks.</string>
-    <string name="module_setup">בחרו ב-LSPosed רק את System Framework ואז הפעילו מחדש את המכשיר.</string>
+    <string name="module_setup">בחרו ב-LSPosed / Vector רק את System Framework ואז הפעילו מחדש את המכשיר.</string>
     <string name="capabilities">ערוצים</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">חיישני Java</string>

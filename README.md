@@ -6,7 +6,7 @@ Kotlin + Jetpack Compose application for reproducible location and motion tests 
 >
 > **Use only the build adapted to your exact device and complete system fingerprint. An OS update requires revalidation. Incorrect system hooks can prevent Android from booting. Mismatched builds warn and disable simulation.**
 
-The reference profile is OnePlus 11 / PHB110 / OP591BL1 / API 36, pinned to the full fingerprint and SensorService SHA-256 in [device_profiles.json](hook-runtime/src/main/assets/device_profiles.json). This is not general Android 14–16 support. Check [verification status](docs/status.md) and [device adaptation](docs/device-adaptation.md) before installation.
+The reference profiles are OnePlus 11 / PHB110 / OP591BL1 on specific Android 16 and Android 17 builds, pinned in [device_profiles.json](hook-runtime/src/main/assets/device_profiles.json). The Android 17 profile also checks the OS incremental: this LOS upgrade retained the Android 16 vendor fingerprint. Android 17 service channels, GMS and independent-UID physical IMU/GPS isolation passed on official LOS 24.0-20261023 with KernelSU 3.3.1, meta-overlayfs 1.3.1, Zygisk Next 1.5.2 and Vector 2.2. Vendor-client coverage retains the limits in [verification status](docs/status.md). This is not general Android 14–17 support.
 
 ## Build
 
@@ -21,18 +21,18 @@ The APKs are produced in `app/build/outputs/apk/debug/` and `probe-app/build/out
 ## Run
 
 1. Install both APKs on the reference device.
-2. Install the matching OpenLocation native Magisk ZIP. In LSPosed, enable **OpenLocation** and select only **System Framework**. Restart the device. Do not select target apps in LSPosed.
+2. Install the matching OpenLocation native ZIP through Magisk or KernelSU. KernelSU requires an active mounting metamodule. In LSPosed/Vector, enable **OpenLocation** and select only **System Framework**. Restart the device. Do not select target apps in the hook framework.
 3. Read the first-use notice. Select target apps under Diagnostics, then choose movement parameters and a route. Start the scene.
 4. Open a selected app or the independent probe. Grant that consumer its normal location and activity permissions.
 5. Stop the scene to restore real sensor subscriptions. The controller notification also provides Stop. The module does not alter mock-location flags, root visibility or application detection logic.
 
-The native companion is required for SensorService channels on the reference firmware. It mounts the native library for system_server to execute. The APK rejects a companion with a different SHA-256. No global SELinux changes or additional injection framework are used. Both packages must come from the same build.
+The native companion is required for SensorService channels on the reference firmware. The APK rejects a companion with a different SHA-256. On Vector, native loading uses the framework's staged copy, whose hash is also checked against the APK, because its isolated linker namespace rejects the legacy system-library path. Older LSPosed retains the mounted-library path. No global SELinux changes or additional injection framework are used. Both packages must come from the same build. Select the exact profile when packaging, for example `python tools/package-native.py <controller.apk> <output.zip> --profile oneplus11-android17-20261023`.
 
 Restart after updating the engine or system-service adapters, even if the native-library hash is unchanged: the running system service retains its already-loaded APK classes. Version 0.1.2's new speed policy requires this restart.
 
 ## Adapt a device
 
-Use the [OpenLocation device adaptation skill](skills/openlocation-device-adaptation/SKILL.md) with your coding agent. The skill covers firmware identification, service signatures, native symbol resolution, heading variants, GMS and common map SDK consumers, channel verification, UID isolation and rollback. A new profile must be backed by device tests; adding a model/fingerprint entry alone does not constitute adaptation.
+Use the [OpenLocation device adaptation skill](skills/openlocation-device-adaptation/SKILL.md) for firmware identification, service signatures, native symbols, channel verification and rollback. Use the [OpenLocation App adaptation skill](skills/openlocation-app-adaptation/SKILL.md) to diagnose consumer data sources, coordinate/time consistency, motion metrics, UID isolation and recovery after stop. Both workflows are independent of specific handset and application brands. A new profile must be backed by device tests; adding a model/fingerprint entry alone does not constitute adaptation.
 
 ## Features
 

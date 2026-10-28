@@ -1,6 +1,6 @@
 <resources>
     <string name="source">المصدر</string>
-    <string name="hooked">LSPosed · اصطناعي</string>
+    <string name="hooked">LSPosed / Vector · اصطناعي</string>
     <string name="real">الجهاز · حقيقي</string>
     <string name="start">مراقبة</string>
     <string name="stop">إيقاف</string>

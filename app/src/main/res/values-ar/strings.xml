@@ -71,7 +71,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">فتح probe</string>
     <string name="probe_missing">ثبّت OpenLocation Probe لفحص عمليات الاستدعاء.</string>
-    <string name="module_setup">اختر System Framework فقط في LSPosed، ثم أعد تشغيل الجهاز.</string>
+    <string name="module_setup">اختر System Framework فقط في LSPosed / Vector، ثم أعد تشغيل الجهاز.</string>
     <string name="capabilities">القنوات</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">مستشعرات Java</string>

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">OpenLocation Probe</string>
-    <string name="source">Source</string><string name="hooked">LSPosed · synthetic</string><string name="real">Device · real</string>
+    <string name="source">Source</string><string name="hooked">LSPosed / Vector · synthetic</string><string name="real">Device · real</string>
     <string name="start">Monitor</string><string name="stop">Stop</string><string name="record">Record</string><string name="recording">Recording</string><string name="export">Export recording</string>
     <string name="gps">GPS</string><string name="no_location">No location</string><string name="sensors">Sensors</string><string name="instance">Instance %1$d · type %2$d</string><string name="rate">%1$.1f Hz · %2$d samples · %3$d gaps</string>
     <string name="timestamp">Monotonic timestamp: %1$d ns</string><string name="revision">Scene %1$d · sequence %2$d</string><string name="waiting">Waiting for samples</string><string name="reference">Scene reference</string><string name="coordinates">%1$.6f, %2$.6f · ±%3$.0f m</string>

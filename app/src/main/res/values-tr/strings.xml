@@ -67,7 +67,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">Probe\'u aç</string>
     <string name="probe_missing">Geri çağrıları incelemek için OpenLocation Probe\'u yükleyin.</string>
-    <string name="module_setup">LSPosed içinde yalnızca System Framework seçin ve cihazı yeniden başlatın.</string>
+    <string name="module_setup">LSPosed / Vector içinde yalnızca System Framework seçin ve cihazı yeniden başlatın.</string>
     <string name="capabilities">Kanallar</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">Java sensörleri</string>

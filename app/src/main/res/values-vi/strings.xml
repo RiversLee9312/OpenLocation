@@ -66,7 +66,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">Mở probe</string>
     <string name="probe_missing">Cài đặt OpenLocation Probe để kiểm tra các lệnh gọi lại.</string>
-    <string name="module_setup">Chỉ chọn System Framework trong LSPosed, sau đó khởi động lại thiết bị.</string>
+    <string name="module_setup">Chỉ chọn System Framework trong LSPosed / Vector, sau đó khởi động lại thiết bị.</string>
     <string name="capabilities">Kênh</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">Cảm biến Java</string>

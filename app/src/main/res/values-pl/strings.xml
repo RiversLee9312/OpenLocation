@@ -69,7 +69,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">Otwórz probe</string>
     <string name="probe_missing">Zainstaluj OpenLocation Probe, aby sprawdzić wywołania zwrotne.</string>
-    <string name="module_setup">W LSPosed wybierz tylko System Framework, a następnie uruchom ponownie urządzenie.</string>
+    <string name="module_setup">W LSPosed / Vector wybierz tylko System Framework, a następnie uruchom ponownie urządzenie.</string>
     <string name="capabilities">Kanały</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">Czujniki Java</string>

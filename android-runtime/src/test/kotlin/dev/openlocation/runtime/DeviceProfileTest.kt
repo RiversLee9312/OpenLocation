@@ -5,6 +5,16 @@ import org.junit.Test
 
 class DeviceProfileTest {
     @Test
+    fun sharedVendorFingerprintDoesNotAuthorizeAnotherOsBuild() {
+        val p = DeviceProfile("a17", "model", "device", 37, "vendor-16", "hash",
+            incremental = "verified-build")
+        assertTrue(p.matches("model", "device", 37, "vendor-16", "hash", "verified-build"))
+        assertFalse(p.matches("model", "device", 36, "vendor-16", "hash", "verified-build"))
+        assertFalse(p.matches("model", "device", 37, "vendor-16", "hash", "different-ota"))
+        assertFalse(p.matches("model", "device", 37, "vendor-16", "hash"))
+    }
+
+    @Test
     fun everyIdentityComponentMustMatchExactly() {
         val p =
             DeviceProfile(

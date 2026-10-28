@@ -1,5 +1,17 @@
 # Verification status
 
+## Android 17 / KernelSU adaptation, 2026-10-28
+
+Official LOS 24.0-20261023, PHB110 / OP591BL1 / API 37 / incremental `c4db0ea4ab`; KernelSU 3.3.1, meta-overlayfs 1.3.1, Zygisk Next 1.5.2, Vector 2.2. SELinux remains Enforcing, with only `system/0` in OpenLocation's scope. The profile records firmware and channel coverage; consumer observations do not add application-specific compatibility fields.
+
+28 JVM tests passed, including rejection of a different OS incremental sharing the same vendor fingerprint. Eight on-device installer cases passed without installing: valid, wrong model/device/API/fingerprint/incremental, wrong native hash and missing hash. Both APKs passed ELF/ZIP alignment checks; locale keys/XML/format arguments passed for all localized resource files.
+
+Seven service-consumer tests passed for Java sensors, rates/lifecycle/flush/pause, GPS last/current/continuous, system providers, raw GNSS/status/NMEA, NDK queues and both direct-memory formats. Heading validation and the actual GMS location SDK 21.3.0 test also passed (installed Play services 26.41.31, target SDK 37). All nine passed again with the restored root-hiding configuration enabled. See `verification/android17-system-service-channels.txt`, `android17-heading-gms.txt` and `android17-with-root-hiding.txt`.
+
+The first unselected-UID test observed physical IMU but failed its six-second physical GPS assertion because no real fix arrived. With the original assertions retained and an additional bounded GNSS acquisition wait, the independent UID test passed in 23.246 seconds: physical IMU/GPS stayed separate from the selected UID's synthetic route. See `verification/android17-uid-isolation.txt`. Physical rotation and long-duration stability are not covered by these automated results; Android 16 evidence below retains its original scope.
+
+Separate bounded UI observations confirmed live route positions in four independent navigation consumers, with driving-speed updates in two. Two fitness consumers showed increasing running distance with consistent pace/cadence, and increasing walking distance with step-count or cadence changes. All six consumers had readable process maps without an OpenLocation library. Stop returned location to the physical region. These observations verify the exercised service-backed paths, not every SDK version, server-derived location or end-to-end activity platform. Consumer identities, versions and screenshots remain in ignored local research; the profile continues to describe firmware and shared channels. The reusable workflow is in `skills/openlocation-app-adaptation/SKILL.md`.
+
 Reference: OnePlus 11, PHB110 / OP591BL1 / API 36, updated 2026-10-20. The complete fingerprint and SensorService SHA-256 are in `hook-runtime/src/main/assets/device_profiles.json`. Similar devices, other firmware and Android 14/15 are not verified.
 
 ## Implemented

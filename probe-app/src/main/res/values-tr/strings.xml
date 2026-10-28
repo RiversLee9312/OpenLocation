@@ -1,6 +1,6 @@
 <resources>
     <string name="source">Kaynak</string>
-    <string name="hooked">LSPosed · sentetik</string>
+    <string name="hooked">LSPosed / Vector · sentetik</string>
     <string name="real">Cihaz · gerçek</string>
     <string name="start">İzle</string>
     <string name="stop">Durdur</string>

@@ -56,7 +56,17 @@ internal class ServerSensorAdapter(private val client: SessionClient) {
         check(expected.contentEquals(mounted)) {
             "Install the native companion from this APK build"
         }
-        System.load("/system/lib64/libopenlocation.so")
+        // Vector stages this APK's libraries in a directory permitted by its isolated
+        // class-loader namespace. Older LSPosed resolves the APK itself, where
+        // system_server cannot execute native code; retain the verified companion there.
+        val resolved = (javaClass.classLoader as? dalvik.system.BaseDexClassLoader)
+            ?.findLibrary("openlocation")
+        val library = resolved?.takeIf { "!/" !in it && java.io.File(it).isFile }
+            ?: "/system/lib64/libopenlocation.so"
+        val loadedHash = java.security.MessageDigest.getInstance("SHA-256")
+            .digest(java.io.File(library).readBytes())
+        check(expected.contentEquals(loadedHash)) { "Framework native library differs from this APK" }
+        System.load(library)
         check(ServiceNative.install(offsets, Build.VERSION.SDK_INT)) {
             "Native service hooks unavailable"
         }

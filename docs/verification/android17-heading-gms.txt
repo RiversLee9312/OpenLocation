@@ -1,0 +1,7 @@
+
+dev.openlocation.probe.HeadingChannelsTest:.
+dev.openlocation.probe.GmsLocationTest:.
+
+Time: 6.935
+
+OK (2 tests)

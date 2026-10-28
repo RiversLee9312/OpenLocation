@@ -67,7 +67,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">प्रोब खोलें</string>
     <string name="probe_missing">कॉलबैक देखने के लिए OpenLocation Probe इंस्टॉल करें।</string>
-    <string name="module_setup">LSPosed में केवल System Framework चुनें, फिर डिवाइस रीस्टार्ट करें।</string>
+    <string name="module_setup">LSPosed / Vector में केवल System Framework चुनें, फिर डिवाइस रीस्टार्ट करें।</string>
     <string name="capabilities">चैनल</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">Java सेंसर</string>

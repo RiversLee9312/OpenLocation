@@ -1,6 +1,6 @@
 <resources>
     <string name="source">Źródło</string>
-    <string name="hooked">LSPosed · dane syntetyczne</string>
+    <string name="hooked">LSPosed / Vector · dane syntetyczne</string>
     <string name="real">Urządzenie · rzeczywiste</string>
     <string name="start">Monitoruj</string>
     <string name="stop">Zatrzymaj</string>

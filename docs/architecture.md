@@ -32,7 +32,7 @@ LocationProviderManager retains permission, AppOps, coarse filtering, cancellati
 
 GNSS proxies retain fine-location/AppOps checks. Native queues retain SensorService registration/access and flush metadata. Fourteen supported types are synthesized: 1, 2, 3, 4, 9, 10, 11, 14, 15, 16, 18, 19, 20 and 35. Other types stay physical. Legacy orientation, rotation/game/geomagnetic vectors and calibrated/uncalibrated IMU values derive from one frame quaternion; numeric sensor type, rather than the vendor name, determines the event format. Each native frame carries fourteen six-float slots, retaining bias fields in uncalibrated events. Direct channels use public memory structures, verified runtime symbols and release-ordered 104-byte events. Hardware fallback is NORMAL rate only; higher-rate checks remain intact. After stop, consumers may need to recreate/reconfigure formats unsupported by physical hardware.
 
-Private ABIs require exact model, codename, API, fingerprint and library SHA-256. Installed ELF/XZ mini debug symbols replace fixed addresses/private offsets. The APK checks the companion against its own native SHA-256.
+Private ABIs require exact model, codename, API, fingerprint and library SHA-256; the Android 17 profile additionally pins the OS incremental because the ROM retained its older vendor fingerprint. Installed ELF/XZ mini debug symbols replace fixed addresses/private offsets. The APK checks the companion and any framework-staged native copy against its own native SHA-256. KernelSU mounting uses an active metamodule; Vector's isolated linker namespace uses its staged copy.
 
 ## Real recording and files
 

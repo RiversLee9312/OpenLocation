@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenLocation App adaptation"
+  short_description: "Diagnose app consumers through shared service channels"
+  default_prompt: "Use $openlocation-app-adaptation to diagnose and validate this app's location and motion channels."

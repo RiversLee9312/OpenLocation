@@ -8,15 +8,100 @@
       "sdk": 36,
       "fingerprint": "OnePlus/CPH2449EEA/OP594DL1:16/TP1A.220905.001/T.R4T3.3b5d87c-159204d-16035e1:user/release-keys",
       "status": "verified",
-      "verifiedChannels": ["java_gps", "java_sensors", "system_location", "gms_location", "tencent_location", "amap_location", "baidu_location", "native_sensors", "gnss_status", "raw_gnss"],
+      "verifiedChannels": [
+        "java_gps",
+        "java_sensors",
+        "system_location",
+        "gms_location",
+        "tencent_location",
+        "amap_location",
+        "baidu_location",
+        "native_sensors",
+        "gnss_status",
+        "raw_gnss"
+      ],
       "consumerEvidence": {
-        "gms_location": {"sdk": "play-services-location 21.3.0", "date": "2026-10-20", "scope": "high-accuracy continuous/current/last; region and freshness checked", "evidence": "docs/verification/gms-location-0.1.1.txt"},
-        "tencent_location": {"consumer": "Tencent map 11.7.0", "date": "2026-10-20", "scope": "GNSS-backed map location consumer; standalone SDK/network-only paths not certified", "evidence": "docs/verification/sdk-consumers-0.1.1.md"},
-        "amap_location": {"consumer": "AMap 17.01.0.2015", "date": "2026-10-20", "scope": "GNSS-backed map location consumer; standalone SDK/network-only paths not certified", "evidence": "docs/verification/sdk-consumers-0.1.1.md"},
-        "baidu_location": {"consumer": "Baidu map 22.0.40", "date": "2026-10-20", "scope": "GNSS-backed map/cruise location consumer; standalone SDK/network-only paths not certified", "evidence": "docs/verification/sdk-consumers-0.1.1.md"},
-        "heading": {"types": [3, 11, 14, 15, 16, 20, 35], "date": "2026-10-20", "evidence": "docs/verification/heading-channels-0.1.1.txt"}
+        "gms_location": {
+          "sdk": "play-services-location 21.3.0",
+          "date": "2026-10-20",
+          "scope": "high-accuracy continuous/current/last; region and freshness checked",
+          "evidence": "docs/verification/gms-location-0.1.1.txt"
+        },
+        "tencent_location": {
+          "consumer": "Tencent map 11.7.0",
+          "date": "2026-10-20",
+          "scope": "GNSS-backed map location consumer; standalone SDK/network-only paths not certified",
+          "evidence": "docs/verification/sdk-consumers-0.1.1.md"
+        },
+        "amap_location": {
+          "consumer": "AMap 17.01.0.2015",
+          "date": "2026-10-20",
+          "scope": "GNSS-backed map location consumer; standalone SDK/network-only paths not certified",
+          "evidence": "docs/verification/sdk-consumers-0.1.1.md"
+        },
+        "baidu_location": {
+          "consumer": "Baidu map 22.0.40",
+          "date": "2026-10-20",
+          "scope": "GNSS-backed map/cruise location consumer; standalone SDK/network-only paths not certified",
+          "evidence": "docs/verification/sdk-consumers-0.1.1.md"
+        },
+        "heading": {
+          "types": [
+            3,
+            11,
+            14,
+            15,
+            16,
+            20,
+            35
+          ],
+          "date": "2026-10-20",
+          "evidence": "docs/verification/heading-channels-0.1.1.txt"
+        }
       },
       "sensorServiceSha256": "f91ac9b7e4d57936aa2fe82bd98c46c9012debf9ddadb8fdcd91a45c9df78972"
+    },
+    {
+      "id": "oneplus11-android17-20261023",
+      "model": "PHB110",
+      "device": "OP591BL1",
+      "sdk": 37,
+      "fingerprint": "OnePlus/CPH2449EEA/OP594DL1:16/TP1A.220905.001/T.R4T3.3b5d87c-159204d-16035e1:user/release-keys",
+      "status": "partially_verified",
+      "verifiedChannels": [
+        "java_gps",
+        "java_sensors",
+        "system_location",
+        "gms_location",
+        "native_sensors",
+        "gnss_status",
+        "raw_gnss"
+      ],
+      "consumerEvidence": {
+        "gms_location": {
+          "sdk": "play-services-location 21.3.0",
+          "services": "26.41.31 (260400-1002748488)",
+          "date": "2026-10-28",
+          "scope": "high-accuracy continuous/current/last; freshness and region; repeated with root hiding",
+          "evidence": "docs/verification/android17-heading-gms.txt"
+        },
+        "heading": {
+          "types": [
+            3,
+            11,
+            14,
+            15,
+            16,
+            20,
+            35
+          ],
+          "date": "2026-10-28",
+          "scope": "independent SensorManager matrix checks; physical rotation not tested",
+          "evidence": "docs/verification/android17-heading-gms.txt"
+        }
+      },
+      "sensorServiceSha256": "f409f837ddf3d406cc0f2c755350173ac7f43e08b33f4c974e704a3346a23d30",
+      "incremental": "c4db0ea4ab"
     }
   ]
 }

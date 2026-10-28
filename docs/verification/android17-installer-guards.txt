@@ -1,0 +1,32 @@
+valid: PASS (exit 0)
+OpenLocation native service backend
+PERMISSIONS_REACHED
+Use System Framework scope only in LSPosed/Vector. Restart required.
+
+model: PASS (exit 42)
+OpenLocation native service backend
+ABORT: Device model mismatch
+
+device: PASS (exit 42)
+OpenLocation native service backend
+ABORT: Device codename mismatch
+
+sdk: PASS (exit 42)
+OpenLocation native service backend
+ABORT: Android API mismatch
+
+fingerprint: PASS (exit 42)
+OpenLocation native service backend
+ABORT: System fingerprint mismatch
+
+sensor: PASS (exit 42)
+OpenLocation native service backend
+ABORT: SensorService binary mismatch
+
+missing_hash: PASS (exit 42)
+OpenLocation native service backend
+ABORT: Missing SensorService compatibility hash
+
+incremental: PASS (exit 42)
+OpenLocation native service backend
+ABORT: System incremental mismatch

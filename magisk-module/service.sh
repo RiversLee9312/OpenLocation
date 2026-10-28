@@ -1,5 +1,6 @@
 #!/system/bin/sh
-# Native library mount is provided by Magisk. No background injector or policy changes.
+# Native library mount is provided by Magisk or a KernelSU mounting metamodule.
+# No background injector or policy changes.
 MODDIR=${0%/*}
 umask 077
 mkdir -p "$MODDIR/state"

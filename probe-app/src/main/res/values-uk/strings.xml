@@ -1,6 +1,6 @@
 <resources>
     <string name="source">Джерело</string>
-    <string name="hooked">LSPosed · синтетичні дані</string>
+    <string name="hooked">LSPosed / Vector · синтетичні дані</string>
     <string name="real">Пристрій · реальні дані</string>
     <string name="start">Моніторинг</string>
     <string name="stop">Зупинити</string>

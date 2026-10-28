@@ -1,6 +1,6 @@
 <resources>
     <string name="source">ソース</string>
-    <string name="hooked">LSPosed · 合成</string>
+    <string name="hooked">LSPosed / Vector · 合成</string>
     <string name="real">端末 · 実際</string>
     <string name="start">監視</string>
     <string name="stop">停止</string>

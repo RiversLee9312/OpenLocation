@@ -66,7 +66,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">プローブを開く</string>
     <string name="probe_missing">コールバックを確認するには OpenLocation Probe をインストールしてください。</string>
-    <string name="module_setup">LSPosed で System Framework のみを選択し、端末を再起動してください。</string>
+    <string name="module_setup">LSPosed / Vector で System Framework のみを選択し、端末を再起動してください。</string>
     <string name="capabilities">チャネル</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">Java センサー</string>

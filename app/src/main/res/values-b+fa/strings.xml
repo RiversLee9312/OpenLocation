@@ -67,7 +67,7 @@
     <string name="probe_only">OpenLocation Probe</string>
     <string name="open_probe">باز کردن probe</string>
     <string name="probe_missing">برای بررسی callbackها، OpenLocation Probe را نصب کنید.</string>
-    <string name="module_setup">در LSPosed فقط System Framework را انتخاب کنید، سپس دستگاه را راه‌اندازی مجدد کنید.</string>
+    <string name="module_setup">در LSPosed / Vector فقط System Framework را انتخاب کنید، سپس دستگاه را راه‌اندازی مجدد کنید.</string>
     <string name="capabilities">کانال‌ها</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">حسگرهای Java</string>

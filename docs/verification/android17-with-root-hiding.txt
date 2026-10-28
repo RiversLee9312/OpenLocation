@@ -1,0 +1,9 @@
+
+dev.openlocation.probe.HookIntegrationTest:....
+dev.openlocation.probe.ExtendedChannelsTest:...
+dev.openlocation.probe.HeadingChannelsTest:.
+dev.openlocation.probe.GmsLocationTest:.
+
+Time: 42.599
+
+OK (9 tests)

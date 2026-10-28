@@ -12,27 +12,32 @@ data class DeviceProfile(
     val fingerprint: String,
     val sensorServiceSha256: String,
     val verifiedChannels: Set<String> = emptySet(),
+    val incremental: String = "",
 ) {
-    fun matches(model: String, device: String, sdk: Int, fingerprint: String, serviceHash: String) =
+    fun matches(model: String, device: String, sdk: Int, fingerprint: String, serviceHash: String,
+                incremental: String = "") =
         this.model == model &&
             this.device == device &&
             this.sdk == sdk &&
             this.fingerprint == fingerprint &&
-            sensorServiceSha256 == serviceHash
+            sensorServiceSha256 == serviceHash &&
+            (this.incremental.isEmpty() || this.incremental == incremental)
 
     fun matchesCurrent(): Boolean {
         if (
             model != Build.MODEL ||
                 device != Build.DEVICE ||
                 sdk != Build.VERSION.SDK_INT ||
-                fingerprint != Build.FINGERPRINT
+                fingerprint != Build.FINGERPRINT ||
+                (incremental.isNotEmpty() && incremental != Build.VERSION.INCREMENTAL)
         )
             return false
         val hash =
             java.security.MessageDigest.getInstance("SHA-256")
                 .digest(java.io.File("/system/lib64/libsensorservice.so").readBytes())
                 .joinToString("") { "%02x".format(it) }
-        return matches(Build.MODEL, Build.DEVICE, Build.VERSION.SDK_INT, Build.FINGERPRINT, hash)
+        return matches(Build.MODEL, Build.DEVICE, Build.VERSION.SDK_INT, Build.FINGERPRINT, hash,
+            Build.VERSION.INCREMENTAL)
     }
 }
 
@@ -53,6 +58,7 @@ object DeviceProfiles {
                 p.getString("sensorServiceSha256"),
                 if (channels == null) emptySet()
                 else (0 until channels.length()).map { channels.getString(it) }.toSet(),
+                p.optString("incremental", ""),
             )
         }
     }

@@ -1,6 +1,6 @@
 <resources>
     <string name="source">Nguồn</string>
-    <string name="hooked">LSPosed · tổng hợp</string>
+    <string name="hooked">LSPosed / Vector · tổng hợp</string>
     <string name="real">Thiết bị · thực</string>
     <string name="start">Theo dõi</string>
     <string name="stop">Dừng</string>

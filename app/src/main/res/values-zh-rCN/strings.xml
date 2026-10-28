@@ -66,7 +66,7 @@
     <string name="probe_only">OpenLocation 探针</string>
     <string name="open_probe">打开探针</string>
     <string name="probe_missing">请安装 OpenLocation 探针以检查回调。</string>
-    <string name="module_setup">在 LSPosed 中仅勾选系统框架，然后重启设备。</string>
+    <string name="module_setup">在 LSPosed / Vector 中仅勾选系统框架，然后重启设备。</string>
     <string name="capabilities">数据通道</string>
     <string name="java_gps">Java GPS</string>
     <string name="java_sensors">Java 传感器</string>

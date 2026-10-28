@@ -412,7 +412,7 @@ extern "C" JNIEXPORT jboolean JNICALL
 Java_dev_openlocation_hook_ServiceNative_install(JNIEnv *env, jclass,
                                                  jlongArray input, jint api) {
   if (getuid() != 1000 || !hooker || env->GetArrayLength(input) != 13 ||
-      api < 34 || api > 36)
+      api < 34 || api > 37)
     return false;
   std::array<jlong, 13> offsets{};
   env->GetLongArrayRegion(input, 0, 13, offsets.data());

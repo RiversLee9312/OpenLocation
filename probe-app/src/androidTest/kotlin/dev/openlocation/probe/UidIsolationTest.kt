@@ -76,6 +76,13 @@ class UidIsolationTest {
             SystemClock.sleep(6000)
             assertTrue("Physical sensor samples missing", errors.size > 100)
             assertTrue("Unselected UID received synthetic motion", errors.average() > .5)
+            println("Unselected UID: physical IMU=${errors.size}; synthetic motion isolation PASS")
+            // A post-upgrade cold GNSS start can take longer than the motion sample window.
+            // Keep the GPS assertion strict; waiting is not evidence of a physical fix.
+            val gpsDeadline = SystemClock.elapsedRealtime() + 60_000
+            while (fixes.isEmpty() && SystemClock.elapsedRealtime() < gpsDeadline) {
+                SystemClock.sleep(250)
+            }
             assertTrue("Physical GPS fix missing", fixes.isNotEmpty())
             assertTrue(
                 "Unselected UID received selected UID route",

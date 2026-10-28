@@ -1,6 +1,6 @@
 <resources>
     <string name="source">Bron</string>
-    <string name="hooked">LSPosed · synthetisch</string>
+    <string name="hooked">LSPosed / Vector · synthetisch</string>
     <string name="real">Apparaat · echt</string>
     <string name="start">Monitoren</string>
     <string name="stop">Stoppen</string>
